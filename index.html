@@ -17,74 +17,181 @@
     <div id="code-modal" class="modal-overlay">
             <!-- Animated Flower Garden Background -->
     <div class="flower-garden-background">
-        <!-- Flower 1 -->
-        <div class="flower flower--1" style="left: 10vw; transform: scale(0.85); --fl-delay: 0s;">
-            <div class="flower__leafs">
-                <div class="flower__leaf flower__leaf--1"></div>
-                <div class="flower__leaf flower__leaf--2"></div>
-                <div class="flower__leaf flower__leaf--3"></div>
-                <div class="flower__leaf flower__leaf--4"></div>
-                <div class="flower__white-circle"></div>
-            </div>
-            <div class="flower__line">
-                <div class="flower__line__leaf flower__line__leaf--1" style="--rot: -45deg;"></div>
-                <div class="flower__line__leaf flower__line__leaf--2" style="--rot: 45deg;"></div>
-                <div class="flower__line__leaf flower__line__leaf--3" style="--rot: -35deg;"></div>
-                <div class="flower__line__leaf flower__line__leaf--4" style="--rot: 35deg;"></div>
-            </div>
+
+        <div class="svg-flower-wrapper" style="left: 8vw; --delay: 0.2s; --scale: 0.85; --stem-h: 45vh;">
+            <div class="svg-stem"></div>
+            <svg class="svg-leaf leaf-left" viewBox="0 0 100 100" style="--rot: -15deg;"><path d="M 100 100 C 50 80, 20 40, 0 0 C 40 10, 80 40, 100 100 Z" fill="#243B35" /></svg>
+            <svg class="svg-leaf leaf-right" viewBox="0 0 100 100" style="--rot: 15deg;"><path d="M 0 100 C 50 80, 80 40, 100 0 C 60 10, 20 40, 0 100 Z" fill="#243B35" /></svg>
+            
+            <svg class="svg-flower-head" viewBox="0 0 100 100">
+                <path d="M 50 50 C 20 60, 5 10, 50 5 C 95 10, 80 60, 50 50 Z" fill="#E25C2B"/>
+                <path d="M 50 50 C 20 60, 5 10, 50 5 C 95 10, 80 60, 50 50 Z" fill="#E25C2B" transform="rotate(72 50 50)"/>
+                <path d="M 50 50 C 20 60, 5 10, 50 5 C 95 10, 80 60, 50 50 Z" fill="#E25C2B" transform="rotate(144 50 50)"/>
+                <path d="M 50 50 C 20 60, 5 10, 50 5 C 95 10, 80 60, 50 50 Z" fill="#E25C2B" transform="rotate(216 50 50)"/>
+                <path d="M 50 50 C 20 60, 5 10, 50 5 C 95 10, 80 60, 50 50 Z" fill="#E25C2B" transform="rotate(288 50 50)"/>
+                <circle cx="50" cy="50" r="14" fill="#CBA135" />
+            </svg>
+
         </div>
-        <!-- Flower 2 -->
-        <div class="flower flower--2" style="left: 22vw; transform: scale(0.65); --fl-delay: 1.2s;">
-            <div class="flower__leafs">
-                <div class="flower__leaf flower__leaf--1"></div><div class="flower__leaf flower__leaf--2"></div><div class="flower__leaf flower__leaf--3"></div><div class="flower__leaf flower__leaf--4"></div>
-                <div class="flower__white-circle"></div>
-            </div>
-            <div class="flower__line"><div class="flower__line__leaf flower__line__leaf--1" style="--rot: -45deg;"></div><div class="flower__line__leaf flower__line__leaf--2" style="--rot: 45deg;"></div><div class="flower__line__leaf flower__line__leaf--3" style="--rot: -35deg;"></div><div class="flower__line__leaf flower__line__leaf--4" style="--rot: 35deg;"></div></div>
+        <div class="svg-flower-wrapper" style="left: 18vw; --delay: 0.6s; --scale: 0.65; --stem-h: 30vh;">
+            <div class="svg-stem"></div>
+            <svg class="svg-leaf leaf-left" viewBox="0 0 100 100" style="--rot: -15deg;"><path d="M 100 100 C 50 80, 20 40, 0 0 C 40 10, 80 40, 100 100 Z" fill="#243B35" /></svg>
+            <svg class="svg-leaf leaf-right" viewBox="0 0 100 100" style="--rot: 15deg;"><path d="M 0 100 C 50 80, 80 40, 100 0 C 60 10, 20 40, 0 100 Z" fill="#243B35" /></svg>
+            
+            <svg class="svg-flower-head" viewBox="0 0 100 100">
+                <path d="M 50 50 C 35 40, 35 15, 50 5 C 65 15, 65 40, 50 50 Z" fill="#F0A500"/>
+                <path d="M 50 50 C 35 40, 35 15, 50 5 C 65 15, 65 40, 50 50 Z" fill="#F0A500" transform="rotate(45 50 50)"/>
+                <path d="M 50 50 C 35 40, 35 15, 50 5 C 65 15, 65 40, 50 50 Z" fill="#F0A500" transform="rotate(90 50 50)"/>
+                <path d="M 50 50 C 35 40, 35 15, 50 5 C 65 15, 65 40, 50 50 Z" fill="#F0A500" transform="rotate(135 50 50)"/>
+                <path d="M 50 50 C 35 40, 35 15, 50 5 C 65 15, 65 40, 50 50 Z" fill="#F0A500" transform="rotate(180 50 50)"/>
+                <path d="M 50 50 C 35 40, 35 15, 50 5 C 65 15, 65 40, 50 50 Z" fill="#F0A500" transform="rotate(225 50 50)"/>
+                <path d="M 50 50 C 35 40, 35 15, 50 5 C 65 15, 65 40, 50 50 Z" fill="#F0A500" transform="rotate(270 50 50)"/>
+                <path d="M 50 50 C 35 40, 35 15, 50 5 C 65 15, 65 40, 50 50 Z" fill="#F0A500" transform="rotate(315 50 50)"/>
+                <circle cx="50" cy="50" r="12" fill="#243B35" />
+                <circle cx="50" cy="50" r="8" fill="#CBA135" />
+            </svg>
+
         </div>
-        <!-- Flower 3 -->
-        <div class="flower flower--3" style="left: 35vw; transform: scale(0.95); --fl-delay: 0.5s;">
-            <div class="flower__leafs">
-                <div class="flower__leaf flower__leaf--1"></div><div class="flower__leaf flower__leaf--2"></div><div class="flower__leaf flower__leaf--3"></div><div class="flower__leaf flower__leaf--4"></div>
-                <div class="flower__white-circle"></div>
-            </div>
-            <div class="flower__line"><div class="flower__line__leaf flower__line__leaf--1" style="--rot: -45deg;"></div><div class="flower__line__leaf flower__line__leaf--2" style="--rot: 45deg;"></div><div class="flower__line__leaf flower__line__leaf--3" style="--rot: -35deg;"></div><div class="flower__line__leaf flower__line__leaf--4" style="--rot: 35deg;"></div></div>
+        <div class="svg-flower-wrapper" style="left: 30vw; --delay: 0.1s; --scale: 0.95; --stem-h: 50vh;">
+            <div class="svg-stem"></div>
+            <svg class="svg-leaf leaf-left" viewBox="0 0 100 100" style="--rot: -15deg;"><path d="M 100 100 C 50 80, 20 40, 0 0 C 40 10, 80 40, 100 100 Z" fill="#243B35" /></svg>
+            <svg class="svg-leaf leaf-right" viewBox="0 0 100 100" style="--rot: 15deg;"><path d="M 0 100 C 50 80, 80 40, 100 0 C 60 10, 20 40, 0 100 Z" fill="#243B35" /></svg>
+            
+            <svg class="svg-flower-head" viewBox="0 0 100 100">
+                <path d="M 50 50 C 20 60, 5 10, 50 5 C 95 10, 80 60, 50 50 Z" fill="#A86573"/>
+                <path d="M 50 50 C 20 60, 5 10, 50 5 C 95 10, 80 60, 50 50 Z" fill="#A86573" transform="rotate(72 50 50)"/>
+                <path d="M 50 50 C 20 60, 5 10, 50 5 C 95 10, 80 60, 50 50 Z" fill="#A86573" transform="rotate(144 50 50)"/>
+                <path d="M 50 50 C 20 60, 5 10, 50 5 C 95 10, 80 60, 50 50 Z" fill="#A86573" transform="rotate(216 50 50)"/>
+                <path d="M 50 50 C 20 60, 5 10, 50 5 C 95 10, 80 60, 50 50 Z" fill="#A86573" transform="rotate(288 50 50)"/>
+                <circle cx="50" cy="50" r="14" fill="#CBA135" />
+            </svg>
+
         </div>
-        <!-- Flower 4 -->
-        <div class="flower flower--4" style="left: 48vw; transform: scale(0.70); --fl-delay: 1.8s;">
-            <div class="flower__leafs">
-                <div class="flower__leaf flower__leaf--1"></div><div class="flower__leaf flower__leaf--2"></div><div class="flower__leaf flower__leaf--3"></div><div class="flower__leaf flower__leaf--4"></div>
-                <div class="flower__white-circle"></div>
-            </div>
-            <div class="flower__line"><div class="flower__line__leaf flower__line__leaf--1" style="--rot: -45deg;"></div><div class="flower__line__leaf flower__line__leaf--2" style="--rot: 45deg;"></div><div class="flower__line__leaf flower__line__leaf--3" style="--rot: -35deg;"></div><div class="flower__line__leaf flower__line__leaf--4" style="--rot: 35deg;"></div></div>
+        <div class="svg-flower-wrapper" style="left: 42vw; --delay: 1.2s; --scale: 0.7; --stem-h: 35vh;">
+            <div class="svg-stem"></div>
+            <svg class="svg-leaf leaf-left" viewBox="0 0 100 100" style="--rot: -15deg;"><path d="M 100 100 C 50 80, 20 40, 0 0 C 40 10, 80 40, 100 100 Z" fill="#243B35" /></svg>
+            <svg class="svg-leaf leaf-right" viewBox="0 0 100 100" style="--rot: 15deg;"><path d="M 0 100 C 50 80, 80 40, 100 0 C 60 10, 20 40, 0 100 Z" fill="#243B35" /></svg>
+            
+            <svg class="svg-flower-head" viewBox="0 0 100 100">
+                <path d="M 50 50 C 35 40, 35 15, 50 5 C 65 15, 65 40, 50 50 Z" fill="#E25C2B"/>
+                <path d="M 50 50 C 35 40, 35 15, 50 5 C 65 15, 65 40, 50 50 Z" fill="#E25C2B" transform="rotate(45 50 50)"/>
+                <path d="M 50 50 C 35 40, 35 15, 50 5 C 65 15, 65 40, 50 50 Z" fill="#E25C2B" transform="rotate(90 50 50)"/>
+                <path d="M 50 50 C 35 40, 35 15, 50 5 C 65 15, 65 40, 50 50 Z" fill="#E25C2B" transform="rotate(135 50 50)"/>
+                <path d="M 50 50 C 35 40, 35 15, 50 5 C 65 15, 65 40, 50 50 Z" fill="#E25C2B" transform="rotate(180 50 50)"/>
+                <path d="M 50 50 C 35 40, 35 15, 50 5 C 65 15, 65 40, 50 50 Z" fill="#E25C2B" transform="rotate(225 50 50)"/>
+                <path d="M 50 50 C 35 40, 35 15, 50 5 C 65 15, 65 40, 50 50 Z" fill="#E25C2B" transform="rotate(270 50 50)"/>
+                <path d="M 50 50 C 35 40, 35 15, 50 5 C 65 15, 65 40, 50 50 Z" fill="#E25C2B" transform="rotate(315 50 50)"/>
+                <circle cx="50" cy="50" r="12" fill="#243B35" />
+                <circle cx="50" cy="50" r="8" fill="#CBA135" />
+            </svg>
+
         </div>
-        <!-- Flower 5 -->
-        <div class="flower flower--5" style="left: 60vw; transform: scale(0.85); --fl-delay: 0.9s;">
-            <div class="flower__leafs">
-                <div class="flower__leaf flower__leaf--1"></div><div class="flower__leaf flower__leaf--2"></div><div class="flower__leaf flower__leaf--3"></div><div class="flower__leaf flower__leaf--4"></div>
-                <div class="flower__white-circle"></div>
-            </div>
-            <div class="flower__line"><div class="flower__line__leaf flower__line__leaf--1" style="--rot: -45deg;"></div><div class="flower__line__leaf flower__line__leaf--2" style="--rot: 45deg;"></div><div class="flower__line__leaf flower__line__leaf--3" style="--rot: -35deg;"></div><div class="flower__line__leaf flower__line__leaf--4" style="--rot: 35deg;"></div></div>
+        <div class="svg-flower-wrapper" style="left: 55vw; --delay: 0.8s; --scale: 0.8; --stem-h: 42vh;">
+            <div class="svg-stem"></div>
+            <svg class="svg-leaf leaf-left" viewBox="0 0 100 100" style="--rot: -15deg;"><path d="M 100 100 C 50 80, 20 40, 0 0 C 40 10, 80 40, 100 100 Z" fill="#243B35" /></svg>
+            <svg class="svg-leaf leaf-right" viewBox="0 0 100 100" style="--rot: 15deg;"><path d="M 0 100 C 50 80, 80 40, 100 0 C 60 10, 20 40, 0 100 Z" fill="#243B35" /></svg>
+            
+            <svg class="svg-flower-head" viewBox="0 0 100 100">
+                <path d="M 50 50 C 20 60, 5 10, 50 5 C 95 10, 80 60, 50 50 Z" fill="#F0A500"/>
+                <path d="M 50 50 C 20 60, 5 10, 50 5 C 95 10, 80 60, 50 50 Z" fill="#F0A500" transform="rotate(72 50 50)"/>
+                <path d="M 50 50 C 20 60, 5 10, 50 5 C 95 10, 80 60, 50 50 Z" fill="#F0A500" transform="rotate(144 50 50)"/>
+                <path d="M 50 50 C 20 60, 5 10, 50 5 C 95 10, 80 60, 50 50 Z" fill="#F0A500" transform="rotate(216 50 50)"/>
+                <path d="M 50 50 C 20 60, 5 10, 50 5 C 95 10, 80 60, 50 50 Z" fill="#F0A500" transform="rotate(288 50 50)"/>
+                <circle cx="50" cy="50" r="14" fill="#CBA135" />
+            </svg>
+
         </div>
-        <!-- Flower 6 -->
-        <div class="flower flower--6" style="left: 72vw; transform: scale(0.60); --fl-delay: 2.1s;">
-            <div class="flower__leafs">
-                <div class="flower__leaf flower__leaf--1"></div><div class="flower__leaf flower__leaf--2"></div><div class="flower__leaf flower__leaf--3"></div><div class="flower__leaf flower__leaf--4"></div>
-                <div class="flower__white-circle"></div>
-            </div>
-            <div class="flower__line"><div class="flower__line__leaf flower__line__leaf--1" style="--rot: -45deg;"></div><div class="flower__line__leaf flower__line__leaf--2" style="--rot: 45deg;"></div><div class="flower__line__leaf flower__line__leaf--3" style="--rot: -35deg;"></div><div class="flower__line__leaf flower__line__leaf--4" style="--rot: 35deg;"></div></div>
+        <div class="svg-flower-wrapper" style="left: 68vw; --delay: 1.5s; --scale: 0.55; --stem-h: 25vh;">
+            <div class="svg-stem"></div>
+            <svg class="svg-leaf leaf-left" viewBox="0 0 100 100" style="--rot: -15deg;"><path d="M 100 100 C 50 80, 20 40, 0 0 C 40 10, 80 40, 100 100 Z" fill="#243B35" /></svg>
+            <svg class="svg-leaf leaf-right" viewBox="0 0 100 100" style="--rot: 15deg;"><path d="M 0 100 C 50 80, 80 40, 100 0 C 60 10, 20 40, 0 100 Z" fill="#243B35" /></svg>
+            
+            <svg class="svg-flower-head" viewBox="0 0 100 100">
+                <path d="M 50 50 C 35 40, 35 15, 50 5 C 65 15, 65 40, 50 50 Z" fill="#A86573"/>
+                <path d="M 50 50 C 35 40, 35 15, 50 5 C 65 15, 65 40, 50 50 Z" fill="#A86573" transform="rotate(45 50 50)"/>
+                <path d="M 50 50 C 35 40, 35 15, 50 5 C 65 15, 65 40, 50 50 Z" fill="#A86573" transform="rotate(90 50 50)"/>
+                <path d="M 50 50 C 35 40, 35 15, 50 5 C 65 15, 65 40, 50 50 Z" fill="#A86573" transform="rotate(135 50 50)"/>
+                <path d="M 50 50 C 35 40, 35 15, 50 5 C 65 15, 65 40, 50 50 Z" fill="#A86573" transform="rotate(180 50 50)"/>
+                <path d="M 50 50 C 35 40, 35 15, 50 5 C 65 15, 65 40, 50 50 Z" fill="#A86573" transform="rotate(225 50 50)"/>
+                <path d="M 50 50 C 35 40, 35 15, 50 5 C 65 15, 65 40, 50 50 Z" fill="#A86573" transform="rotate(270 50 50)"/>
+                <path d="M 50 50 C 35 40, 35 15, 50 5 C 65 15, 65 40, 50 50 Z" fill="#A86573" transform="rotate(315 50 50)"/>
+                <circle cx="50" cy="50" r="12" fill="#243B35" />
+                <circle cx="50" cy="50" r="8" fill="#CBA135" />
+            </svg>
+
         </div>
-        <!-- Flower 7 -->
-        <div class="flower flower--7" style="left: 85vw; transform: scale(0.90); --fl-delay: 0.3s;">
-            <div class="flower__leafs">
-                <div class="flower__leaf flower__leaf--1"></div><div class="flower__leaf flower__leaf--2"></div><div class="flower__leaf flower__leaf--3"></div><div class="flower__leaf flower__leaf--4"></div>
-                <div class="flower__white-circle"></div>
-            </div>
-            <div class="flower__line"><div class="flower__line__leaf flower__line__leaf--1" style="--rot: -45deg;"></div><div class="flower__line__leaf flower__line__leaf--2" style="--rot: 45deg;"></div><div class="flower__line__leaf flower__line__leaf--3" style="--rot: -35deg;"></div><div class="flower__line__leaf flower__line__leaf--4" style="--rot: 35deg;"></div></div>
+        <div class="svg-flower-wrapper" style="left: 82vw; --delay: 0.4s; --scale: 0.9; --stem-h: 48vh;">
+            <div class="svg-stem"></div>
+            <svg class="svg-leaf leaf-left" viewBox="0 0 100 100" style="--rot: -15deg;"><path d="M 100 100 C 50 80, 20 40, 0 0 C 40 10, 80 40, 100 100 Z" fill="#243B35" /></svg>
+            <svg class="svg-leaf leaf-right" viewBox="0 0 100 100" style="--rot: 15deg;"><path d="M 0 100 C 50 80, 80 40, 100 0 C 60 10, 20 40, 0 100 Z" fill="#243B35" /></svg>
+            
+            <svg class="svg-flower-head" viewBox="0 0 100 100">
+                <path d="M 50 50 C 20 60, 5 10, 50 5 C 95 10, 80 60, 50 50 Z" fill="#E25C2B"/>
+                <path d="M 50 50 C 20 60, 5 10, 50 5 C 95 10, 80 60, 50 50 Z" fill="#E25C2B" transform="rotate(72 50 50)"/>
+                <path d="M 50 50 C 20 60, 5 10, 50 5 C 95 10, 80 60, 50 50 Z" fill="#E25C2B" transform="rotate(144 50 50)"/>
+                <path d="M 50 50 C 20 60, 5 10, 50 5 C 95 10, 80 60, 50 50 Z" fill="#E25C2B" transform="rotate(216 50 50)"/>
+                <path d="M 50 50 C 20 60, 5 10, 50 5 C 95 10, 80 60, 50 50 Z" fill="#E25C2B" transform="rotate(288 50 50)"/>
+                <circle cx="50" cy="50" r="14" fill="#CBA135" />
+            </svg>
+
+        </div>
+        <div class="svg-flower-wrapper" style="left: 92vw; --delay: 1.0s; --scale: 0.6; --stem-h: 35vh;">
+            <div class="svg-stem"></div>
+            <svg class="svg-leaf leaf-left" viewBox="0 0 100 100" style="--rot: -15deg;"><path d="M 100 100 C 50 80, 20 40, 0 0 C 40 10, 80 40, 100 100 Z" fill="#243B35" /></svg>
+            <svg class="svg-leaf leaf-right" viewBox="0 0 100 100" style="--rot: 15deg;"><path d="M 0 100 C 50 80, 80 40, 100 0 C 60 10, 20 40, 0 100 Z" fill="#243B35" /></svg>
+            
+            <svg class="svg-flower-head" viewBox="0 0 100 100">
+                <path d="M 50 50 C 35 40, 35 15, 50 5 C 65 15, 65 40, 50 50 Z" fill="#F0A500"/>
+                <path d="M 50 50 C 35 40, 35 15, 50 5 C 65 15, 65 40, 50 50 Z" fill="#F0A500" transform="rotate(45 50 50)"/>
+                <path d="M 50 50 C 35 40, 35 15, 50 5 C 65 15, 65 40, 50 50 Z" fill="#F0A500" transform="rotate(90 50 50)"/>
+                <path d="M 50 50 C 35 40, 35 15, 50 5 C 65 15, 65 40, 50 50 Z" fill="#F0A500" transform="rotate(135 50 50)"/>
+                <path d="M 50 50 C 35 40, 35 15, 50 5 C 65 15, 65 40, 50 50 Z" fill="#F0A500" transform="rotate(180 50 50)"/>
+                <path d="M 50 50 C 35 40, 35 15, 50 5 C 65 15, 65 40, 50 50 Z" fill="#F0A500" transform="rotate(225 50 50)"/>
+                <path d="M 50 50 C 35 40, 35 15, 50 5 C 65 15, 65 40, 50 50 Z" fill="#F0A500" transform="rotate(270 50 50)"/>
+                <path d="M 50 50 C 35 40, 35 15, 50 5 C 65 15, 65 40, 50 50 Z" fill="#F0A500" transform="rotate(315 50 50)"/>
+                <circle cx="50" cy="50" r="12" fill="#243B35" />
+                <circle cx="50" cy="50" r="8" fill="#CBA135" />
+            </svg>
+
+        </div>
+        <div class="svg-flower-wrapper" style="left: 25vw; --delay: 1.8s; --scale: 0.5; --stem-h: 20vh;">
+            <div class="svg-stem"></div>
+            <svg class="svg-leaf leaf-left" viewBox="0 0 100 100" style="--rot: -15deg;"><path d="M 100 100 C 50 80, 20 40, 0 0 C 40 10, 80 40, 100 100 Z" fill="#243B35" /></svg>
+            <svg class="svg-leaf leaf-right" viewBox="0 0 100 100" style="--rot: 15deg;"><path d="M 0 100 C 50 80, 80 40, 100 0 C 60 10, 20 40, 0 100 Z" fill="#243B35" /></svg>
+            
+            <svg class="svg-flower-head" viewBox="0 0 100 100">
+                <path d="M 50 50 C 20 60, 5 10, 50 5 C 95 10, 80 60, 50 50 Z" fill="#A86573"/>
+                <path d="M 50 50 C 20 60, 5 10, 50 5 C 95 10, 80 60, 50 50 Z" fill="#A86573" transform="rotate(72 50 50)"/>
+                <path d="M 50 50 C 20 60, 5 10, 50 5 C 95 10, 80 60, 50 50 Z" fill="#A86573" transform="rotate(144 50 50)"/>
+                <path d="M 50 50 C 20 60, 5 10, 50 5 C 95 10, 80 60, 50 50 Z" fill="#A86573" transform="rotate(216 50 50)"/>
+                <path d="M 50 50 C 20 60, 5 10, 50 5 C 95 10, 80 60, 50 50 Z" fill="#A86573" transform="rotate(288 50 50)"/>
+                <circle cx="50" cy="50" r="14" fill="#CBA135" />
+            </svg>
+
+        </div>
+        <div class="svg-flower-wrapper" style="left: 75vw; --delay: 2.1s; --scale: 0.75; --stem-h: 38vh;">
+            <div class="svg-stem"></div>
+            <svg class="svg-leaf leaf-left" viewBox="0 0 100 100" style="--rot: -15deg;"><path d="M 100 100 C 50 80, 20 40, 0 0 C 40 10, 80 40, 100 100 Z" fill="#243B35" /></svg>
+            <svg class="svg-leaf leaf-right" viewBox="0 0 100 100" style="--rot: 15deg;"><path d="M 0 100 C 50 80, 80 40, 100 0 C 60 10, 20 40, 0 100 Z" fill="#243B35" /></svg>
+            
+            <svg class="svg-flower-head" viewBox="0 0 100 100">
+                <path d="M 50 50 C 35 40, 35 15, 50 5 C 65 15, 65 40, 50 50 Z" fill="#E25C2B"/>
+                <path d="M 50 50 C 35 40, 35 15, 50 5 C 65 15, 65 40, 50 50 Z" fill="#E25C2B" transform="rotate(45 50 50)"/>
+                <path d="M 50 50 C 35 40, 35 15, 50 5 C 65 15, 65 40, 50 50 Z" fill="#E25C2B" transform="rotate(90 50 50)"/>
+                <path d="M 50 50 C 35 40, 35 15, 50 5 C 65 15, 65 40, 50 50 Z" fill="#E25C2B" transform="rotate(135 50 50)"/>
+                <path d="M 50 50 C 35 40, 35 15, 50 5 C 65 15, 65 40, 50 50 Z" fill="#E25C2B" transform="rotate(180 50 50)"/>
+                <path d="M 50 50 C 35 40, 35 15, 50 5 C 65 15, 65 40, 50 50 Z" fill="#E25C2B" transform="rotate(225 50 50)"/>
+                <path d="M 50 50 C 35 40, 35 15, 50 5 C 65 15, 65 40, 50 50 Z" fill="#E25C2B" transform="rotate(270 50 50)"/>
+                <path d="M 50 50 C 35 40, 35 15, 50 5 C 65 15, 65 40, 50 50 Z" fill="#E25C2B" transform="rotate(315 50 50)"/>
+                <circle cx="50" cy="50" r="12" fill="#243B35" />
+                <circle cx="50" cy="50" r="8" fill="#CBA135" />
+            </svg>
+
         </div>
     </div>
 
     <style>
-    /* Garden Container */
+    /* Organic SVG Garden Container */
     .flower-garden-background {
         position: fixed;
         bottom: 0;
@@ -96,125 +203,76 @@
         overflow: hidden;
     }
 
-    /* Base Flower Positioning */
-    .flower {
+    .svg-flower-wrapper {
         position: absolute;
-        bottom: 0px;
+        bottom: 0;
         transform-origin: bottom center;
+        transform: scale(var(--scale));
         z-index: 10;
-        --fl-speed: 2.5s;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 10px; /* small base width for absolute alignment */
     }
 
-    .flower__line {
-        width: 8px;
-        height: 40vmin;
-        background-color: var(--color-deep-green, #243B35);
-        border-radius: 4px;
-        animation: grow-flower-tree var(--fl-speed) var(--fl-delay) backwards;
-        position: relative;
-        z-index: 1;
+    .svg-stem {
+        width: 6px;
+        height: var(--stem-h, 40vh);
+        background-color: #243B35;
+        border-radius: 4px 4px 0 0;
+        transform-origin: bottom center;
+        animation: stem-grow 2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+        animation-delay: var(--delay);
+        transform: scaleY(0);
     }
 
-    .flower__line__leaf {
+    .svg-leaf {
         position: absolute;
-        width: 8vmin;
-        height: 8vmin;
-        background-color: var(--color-deep-green, #243B35);
-        opacity: 0.9;
-        animation: blooming-leaf 2s calc(var(--fl-delay) + 1s) backwards;
-        border-radius: 50% 0 50% 0;
+        width: 60px;
+        height: 60px;
+        bottom: calc(var(--stem-h, 40vh) * 0.4);
+        opacity: 0;
+        animation: leaf-bloom 1.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+        animation-delay: calc(var(--delay) + 0.6s);
+        filter: drop-shadow(0px 4px 6px rgba(0,0,0,0.15));
     }
 
-    .flower__line__leaf--1 {
-        top: 20%;
+    .leaf-left {
+        right: 2px;
+        transform-origin: bottom right;
+    }
+
+    .leaf-right {
+        left: 2px;
         transform-origin: bottom left;
-        left: 8px;
-    }
-    .flower__line__leaf--2 {
-        top: 40%;
-        transform-origin: bottom right;
-        right: 8px;
-        border-radius: 0 50% 0 50%;
-    }
-    .flower__line__leaf--3 {
-        top: 60%;
-        transform-origin: bottom left;
-        left: 8px;
-    }
-    .flower__line__leaf--4 {
-        top: 80%;
-        transform-origin: bottom right;
-        right: 8px;
-        border-radius: 0 50% 0 50%;
     }
 
-    .flower__leafs {
+    .svg-flower-head {
         position: absolute;
-        bottom: 40vmin;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 10vmin;
-        height: 10vmin;
-        z-index: 2;
-        animation: blooming-flower 2s calc(var(--fl-delay) + 1.5s) backwards;
+        bottom: calc(var(--stem-h, 40vh) - 30px);
+        left: -55px;
+        width: 120px;
+        height: 120px;
+        opacity: 0;
+        transform-origin: center;
+        animation: flower-bloom 1.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+        animation-delay: calc(var(--delay) + 1.0s);
+        filter: drop-shadow(0px 4px 6px rgba(0,0,0,0.15));
     }
 
-    .flower__leaf {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        width: 8vmin;
-        height: 8vmin;
-        background-color: var(--color-saffron, #E25C2B);
-        border-radius: 50% 0 50% 0;
-        transform-origin: bottom right;
-        opacity: 0.9;
+    @keyframes stem-grow {
+        0% { transform: scaleY(0); }
+        100% { transform: scaleY(1); }
     }
 
-    .flower--2 .flower__leaf, .flower--5 .flower__leaf, .flower--7 .flower__leaf {
-        background-color: var(--color-marigold, #F0A500);
+    @keyframes leaf-bloom {
+        0% { transform: scale(0) rotate(var(--rot, 0deg)); opacity: 0; }
+        100% { transform: scale(1) rotate(var(--rot, 0deg)); opacity: 1; }
     }
 
-    .flower--3 .flower__leaf, .flower--6 .flower__leaf {
-        background-color: var(--color-muted-rose, #A86573);
-    }
-
-    /* Individual petals */
-    .flower__leaf--1 { transform: translate(-100%, -100%) rotate(0deg); }
-    .flower__leaf--2 { transform: translate(-100%, -100%) rotate(90deg); }
-    .flower__leaf--3 { transform: translate(-100%, -100%) rotate(180deg); }
-    .flower__leaf--4 { transform: translate(-100%, -100%) rotate(270deg); }
-
-    .flower__white-circle {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 4vmin;
-        height: 4vmin;
-        background-color: var(--color-gold, #CBA135);
-        border-radius: 50%;
-        z-index: 3;
-    }
-
-    @keyframes grow-flower-tree {
-        0% { height: 0; border-radius: 1vmin; }
-        100% { height: 40vmin; border-radius: 4px; }
-    }
-
-    @keyframes blooming-flower {
-        0% { transform: translateX(-50%) scale(0); }
-        100% { transform: translateX(-50%) scale(1); }
-    }
-
-    @keyframes blooming-leaf {
-        0% { transform: rotate(var(--rot)) scale(0); }
-        100% { transform: rotate(var(--rot)) scale(1); }
-    }
-
-    /* Hide the garden completely once the code modal is hidden */
-    #code-modal.hidden ~ .flower-garden-background {
-        display: none !important;
+    @keyframes flower-bloom {
+        0% { transform: scale(0) rotate(-15deg); opacity: 0; }
+        100% { transform: scale(1) rotate(0deg); opacity: 1; }
     }
     </style>
         <div class="modal-card">
