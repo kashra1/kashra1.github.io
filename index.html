@@ -25,6 +25,22 @@
         </div>
     </div>
 
+    <!-- RSVP Modal -->
+    <div id="rsvp-modal" class="modal-overlay hidden">
+        <div class="modal-card rsvp-card">
+            <button id="close-rsvp" class="close-btn" aria-label="Close">&times;</button>
+            <h2 class="modal-title">RSVP</h2>
+            <p class="modal-desc">Please let us know if you are able to attend the events.</p>
+            <form id="rsvp-form">
+                <div id="rsvp-dynamic-fields" class="rsvp-fields-container">
+                    <!-- Dynamic radio buttons injected here -->
+                </div>
+                <div id="rsvp-status-message" class="error-message hidden" style="background-color: #e8f5e9; color: #2e7d32; border-color: #c8e6c9;"></div>
+                <button type="submit" id="submit-rsvp-btn" class="btn btn-primary" style="width: 100%; margin-top: 1.5rem;">Submit RSVP</button>
+            </form>
+        </div>
+    </div>
+
     <!-- Main Content hidden behind blur initially -->
     <div id="main-content" class="blurred">
         
@@ -51,12 +67,20 @@
                 <h2 id="guest-welcome-msg" class="welcome-heading">Hi, Guest</h2>
                 <div class="banner-divider"></div>
                 <p id="guest-tier-msg" class="tier-message">You are warmly invited to join us for our celebration.</p>
-                <button id="logout-btn" class="btn btn-secondary btn-small">Not your invite? Use a different code</button>
+                <div class="banner-actions">
+                    <button id="rsvp-btn-top" class="btn btn-primary" style="margin-right: 1rem;">RSVP Now</button>
+                    <button id="logout-btn" class="btn btn-secondary btn-small">Not your invite? Use a different code</button>
+                </div>
             </section>
 
             <!-- Dynamic Event Cards Container -->
             <section id="events-container" class="events-container">
                 <!-- Event cards will be injected here via JavaScript -->
+            </section>
+            
+            <section id="bottom-rsvp-section" class="personalized-banner hidden" style="margin-top: 2rem; margin-bottom: 4rem;">
+                <h2 class="welcome-heading" style="font-size: 1.8rem;">Please let us know if you can make it</h2>
+                <button id="rsvp-btn-bottom" class="btn btn-primary" style="margin-top: 1rem;">RSVP Now</button>
             </section>
         </main>
 

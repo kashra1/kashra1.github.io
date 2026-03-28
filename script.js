@@ -7,6 +7,8 @@
  */
 
 const SESSION_KEY = 'wedding_guest_session';
+// TODO: Add your Google Apps Script Web App URL here after following the rsvp/README.md instructions
+const RSVP_WEB_APP_URL = ''; 
 
 // All Possible Events Configuration
 const ALL_EVENTS = [
@@ -94,7 +96,18 @@ const elements = {
     guestTierMsg: document.getElementById('guest-tier-msg'),
     eventsContainer: document.getElementById('events-container'),
     logoutBtn: document.getElementById('logout-btn'),
-    reopenModalBtn: document.getElementById('reopen-modal-btn')
+    reopenModalBtn: document.getElementById('reopen-modal-btn'),
+    
+    // RSVP Elements
+    rsvpModal: document.getElementById('rsvp-modal'),
+    rsvpBtnTop: document.getElementById('rsvp-btn-top'),
+    rsvpBtnBottom: document.getElementById('rsvp-btn-bottom'),
+    bottomRsvpSection: document.getElementById('bottom-rsvp-section'),
+    closeRsvp: document.getElementById('close-rsvp'),
+    rsvpForm: document.getElementById('rsvp-form'),
+    rsvpDynamicFields: document.getElementById('rsvp-dynamic-fields'),
+    rsvpStatusMessage: document.getElementById('rsvp-status-message'),
+    submitRsvpBtn: document.getElementById('submit-rsvp-btn')
 };
 
 // Icons (SVG strings for injecting)
@@ -127,6 +140,12 @@ function init() {
     elements.codeForm.addEventListener('submit', handleLogin);
     elements.logoutBtn.addEventListener('click', handleLogout);
     elements.reopenModalBtn.addEventListener('click', handleLogout);
+    
+    // RSVP Event Listeners
+    elements.rsvpBtnTop.addEventListener('click', openRsvpModal);
+    elements.rsvpBtnBottom.addEventListener('click', openRsvpModal);
+    elements.closeRsvp.addEventListener('click', closeRsvpModal);
+    elements.rsvpForm.addEventListener('submit', handleRsvpSubmit);
 }
 
 /**
@@ -203,6 +222,7 @@ function showModalView() {
     elements.mainContent.classList.add('blurred');
     elements.personalizedBanner.classList.add('hidden');
     elements.reopenModalBtn.classList.add('hidden');
+    elements.bottomRsvpSection.classList.add('hidden');
     elements.eventsContainer.innerHTML = '';
     
     setTimeout(() => {
@@ -212,9 +232,11 @@ function showModalView() {
 
 function renderAuthenticatedView(guestData) {
     elements.modalOverlay.classList.add('hidden');
+    elements.rsvpModal.classList.add('hidden');
     elements.mainContent.classList.remove('blurred');
     elements.personalizedBanner.classList.remove('hidden');
     elements.reopenModalBtn.classList.remove('hidden');
+    elements.bottomRsvpSection.classList.remove('hidden');
     
     const tierConfig = TIER_MAPPING[guestData.inviteTier];
 
@@ -296,6 +318,109 @@ function createEventCard(eventData) {
         '</div>';
 
     return card;
+}
+
+/**
+ * RSVP Logic
+ */
+function openRsvpModal() {
+    const sessionStr = localStorage.getItem(SESSION_KEY);
+    if (!sessionStr) return;
+    
+    const guestData = JSON.parse(sessionStr);
+    const tierConfig = TIER_MAPPING[guestData.inviteTier];
+    const eventsToRender = ALL_EVENTS.filter(event => tierConfig.events.includes(event.id));
+
+    // Generate fields
+    elements.rsvpDynamicFields.innerHTML = '';
+    eventsToRender.forEach(event => {
+        const group = document.createElement('div');
+        group.className = 'rsvp-event-group';
+        group.innerHTML = `
+            <h4 class="rsvp-event-title">${event.title}</h4>
+            <div class="rsvp-radio-options">
+                <label class="radio-label">
+                    <input type="radio" name="rsvp-${event.id}" value="Attending" required>
+                    Joyfully Accept
+                </label>
+                <label class="radio-label">
+                    <input type="radio" name="rsvp-${event.id}" value="Declining" required>
+                    Regretfully Decline
+                </label>
+            </div>
+        `;
+        elements.rsvpDynamicFields.appendChild(group);
+    });
+
+    elements.rsvpStatusMessage.classList.add('hidden');
+    elements.rsvpModal.classList.remove('hidden');
+}
+
+function closeRsvpModal() {
+    elements.rsvpModal.classList.add('hidden');
+}
+
+async function handleRsvpSubmit(e) {
+    e.preventDefault();
+    
+    const sessionStr = localStorage.getItem(SESSION_KEY);
+    if (!sessionStr) return;
+    const guestData = JSON.parse(sessionStr);
+
+    // Collect data
+    const formData = new FormData(elements.rsvpForm);
+    const rsvpData = {
+        code: guestData.privateCode,
+        name: guestData.displayName,
+        tier: guestData.inviteTier,
+        timestamp: new Date().toISOString()
+    };
+
+    const tierConfig = TIER_MAPPING[guestData.inviteTier];
+    tierConfig.events.forEach(eventId => {
+        rsvpData[eventId] = formData.get('rsvp-' + eventId);
+    });
+
+    if (!RSVP_WEB_APP_URL) {
+        // Mock submission if no URL provided
+        console.log("Mock RSVP Submission:", rsvpData);
+        elements.rsvpStatusMessage.innerHTML = "<strong>Success!</strong> Your RSVP was recorded locally. (Backend URL not configured).";
+        elements.rsvpStatusMessage.classList.remove('hidden');
+        elements.rsvpForm.reset();
+        setTimeout(closeRsvpModal, 3000);
+        return;
+    }
+
+    elements.submitRsvpBtn.disabled = true;
+    elements.submitRsvpBtn.textContent = 'Submitting...';
+
+    try {
+        await fetch(RSVP_WEB_APP_URL, {
+            method: 'POST',
+            body: JSON.stringify(rsvpData),
+            headers: {
+                'Content-Type': 'text/plain;charset=utf-8', 
+                // using text/plain avoids CORS preflight blocks for simple Google Apps Scripts
+            }
+        });
+        
+        // Assumes success as Google Apps Script usually returns 200 or opaque
+        elements.rsvpStatusMessage.innerHTML = "<strong>Success!</strong> Thank you for your RSVP.";
+        elements.rsvpStatusMessage.style.color = "#2e7d32";
+        elements.rsvpStatusMessage.style.backgroundColor = "#e8f5e9";
+        elements.rsvpStatusMessage.classList.remove('hidden');
+        elements.rsvpForm.reset();
+        setTimeout(closeRsvpModal, 3000);
+    } catch (err) {
+        console.error("RSVP Submission Error:", err);
+        elements.rsvpStatusMessage.innerHTML = "<strong>Error:</strong> Failed to submit. Please try again or contact us directly.";
+        elements.rsvpStatusMessage.style.color = "#c9302c";
+        elements.rsvpStatusMessage.style.backgroundColor = "#fdf2f2";
+        elements.rsvpStatusMessage.classList.remove('hidden');
+    } finally {
+        elements.submitRsvpBtn.disabled = false;
+        elements.submitRsvpBtn.textContent = 'Submit RSVP';
+    }
 }
 
 // Boot the app

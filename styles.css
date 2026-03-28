@@ -633,3 +633,84 @@ input[type="text"]:focus {
         padding: 2.5rem 1.5rem;
     }
 }
+
+/* RSVP Specific Styles */
+.rsvp-card {
+    max-width: 550px;
+    padding-top: 3.5rem;
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: #999;
+    cursor: pointer;
+    transition: color 0.3s;
+    line-height: 1;
+}
+
+.close-btn:hover {
+    color: var(--color-deep-green);
+}
+
+.banner-actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+#bottom-rsvp-section {
+    padding: 2rem;
+}
+
+.rsvp-fields-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    text-align: left;
+    max-height: 50vh;
+    overflow-y: auto;
+    padding-right: 10px;
+}
+
+.rsvp-event-group {
+    background: rgba(250, 248, 242, 0.5);
+    border: 1px solid rgba(203, 161, 53, 0.2);
+    border-radius: 8px;
+    padding: 1.25rem;
+}
+
+.rsvp-event-title {
+    font-family: var(--font-heading);
+    color: var(--color-deep-green);
+    font-size: 1.2rem;
+    margin-bottom: 0.75rem;
+    border-bottom: 1px dashed rgba(203, 161, 53, 0.3);
+    padding-bottom: 0.5rem;
+}
+
+.rsvp-radio-options {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.radio-label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 0.95rem;
+    color: #444;
+}
+
+.radio-label input[type="radio"] {
+    margin-right: 0.5rem;
+    accent-color: var(--color-deep-green);
+    cursor: pointer;
+}
+
