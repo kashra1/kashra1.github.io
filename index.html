@@ -15,18 +15,7 @@
 
     <!-- Code Entry Modal -->
     <div id="code-modal" class="modal-overlay">
-        <div class="modal-card">
-            <h2 class="modal-title">Welcome</h2>
-            <p class="modal-desc">Please enter your private invitation code to view the wedding details.</p>
-            <form id="code-form">
-                <input type="text" id="invite-code" name="invite-code" placeholder="Enter your code (e.g., XYZ5792G)" required autocomplete="off" aria-label="Invitation Code">
-                <button type="submit" class="btn btn-primary">Enter</button>
-            </form>
-            <div id="error-message" class="error-message hidden" role="alert">We could not find that invitation code. Please try again.</div>
-        </div>
-    </div>
-
-    <!-- Animated Flower Garden Background -->
+            <!-- Animated Flower Garden Background -->
     <div class="flower-garden-background">
         <!-- Flower 1 -->
         <div class="flower flower--1" style="left: 10vw; transform: scale(0.85); --fl-delay: 0s;">
@@ -228,6 +217,16 @@
         display: none !important;
     }
     </style>
+        <div class="modal-card">
+            <h2 class="modal-title">Welcome</h2>
+            <p class="modal-desc">Please enter your private invitation code to view the wedding details.</p>
+            <form id="code-form">
+                <input type="text" id="invite-code" name="invite-code" placeholder="Enter your code (e.g., XYZ5792G)" required autocomplete="off" aria-label="Invitation Code">
+                <button type="submit" class="btn btn-primary">Enter</button>
+            </form>
+            <div id="error-message" class="error-message hidden" role="alert">We could not find that invitation code. Please try again.</div>
+        </div>
+    </div>
 
     <!-- RSVP Modal -->
     <div id="rsvp-modal" class="modal-overlay hidden">
