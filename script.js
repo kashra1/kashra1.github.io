@@ -98,6 +98,15 @@ const elements = {
     logoutBtn: document.getElementById('logout-btn'),
     reopenModalBtn: document.getElementById('reopen-modal-btn'),
     
+    // Navigation & Tabs
+    topNav: document.getElementById('top-nav'),
+    navMenu: document.getElementById('nav-menu'),
+    mobileNavToggle: document.getElementById('mobile-nav-toggle'),
+    navLinks: document.querySelectorAll('.nav-link'),
+    tabPages: document.querySelectorAll('.tab-page'),
+    navRsvpBtn: document.getElementById('nav-rsvp-btn'),
+    galleryGrid: document.getElementById('gallery-grid'),
+
     // RSVP Elements
     rsvpModal: document.getElementById('rsvp-modal'),
     rsvpBtnTop: document.getElementById('rsvp-btn-top'),
@@ -146,6 +155,16 @@ function init() {
     elements.rsvpBtnBottom.addEventListener('click', openRsvpModal);
     elements.closeRsvp.addEventListener('click', closeRsvpModal);
     elements.rsvpForm.addEventListener('submit', handleRsvpSubmit);
+    
+    // Navigation Listeners
+    elements.navRsvpBtn.addEventListener('click', openRsvpModal);
+    elements.mobileNavToggle.addEventListener('click', () => {
+        elements.navMenu.classList.toggle('active');
+    });
+    
+    elements.navLinks.forEach(link => {
+        link.addEventListener('click', handleTabClick);
+    });
 }
 
 /**
@@ -223,6 +242,7 @@ function showModalView() {
     elements.personalizedBanner.classList.add('hidden');
     elements.reopenModalBtn.classList.add('hidden');
     elements.bottomRsvpSection.classList.add('hidden');
+    elements.topNav.classList.add('hidden');
     elements.eventsContainer.innerHTML = '';
     
     setTimeout(() => {
@@ -237,6 +257,12 @@ function renderAuthenticatedView(guestData) {
     elements.personalizedBanner.classList.remove('hidden');
     elements.reopenModalBtn.classList.remove('hidden');
     elements.bottomRsvpSection.classList.remove('hidden');
+    elements.topNav.classList.remove('hidden');
+    
+    // Initialize gallery if empty
+    if (elements.galleryGrid && elements.galleryGrid.children.length === 0) {
+        initGallery();
+    }
     
     const tierConfig = TIER_MAPPING[guestData.inviteTier];
 
@@ -262,6 +288,64 @@ function renderAuthenticatedView(guestData) {
             elements.eventsContainer.append(card);
         });
     }, 100);
+}
+
+/**
+ * Tab Navigation Logic
+ */
+function handleTabClick(e) {
+    // Only prevent default if it's an internal # anchor
+    const href = e.currentTarget.getAttribute('href');
+    if (href && href.startsWith('#')) {
+        e.preventDefault();
+    }
+    
+    // Remove active class from all links
+    elements.navLinks.forEach(link => link.classList.remove('active'));
+    
+    // Add active to clicked link
+    e.currentTarget.classList.add('active');
+    
+    // Hide all tabs
+    elements.tabPages.forEach(page => page.classList.add('hidden'));
+    
+    // Show target tab
+    const targetTabId = e.currentTarget.dataset.tab;
+    const targetTab = document.getElementById(targetTabId);
+    if (targetTab) {
+        targetTab.classList.remove('hidden');
+    }
+    
+    // Close mobile menu if open
+    if (elements.navMenu.classList.contains('active')) {
+        elements.navMenu.classList.remove('active');
+    }
+    
+    window.scrollTo(0, 0);
+}
+
+/**
+ * Gallery Logic
+ */
+function initGallery() {
+    elements.galleryGrid.innerHTML = '';
+    const MAX_PHOTOS = 12; // Configurable as requested
+    
+    for (let i = 1; i <= MAX_PHOTOS; i++) {
+        const img = document.createElement('img');
+        img.className = 'gallery-item';
+        // Force the browser to attempt loading
+        img.src = 'photos/' + i + '.jpg';
+        img.alt = 'Gallery Image ' + i;
+        img.loading = 'lazy';
+        
+        // If image doesn't exist, hide it cleanly
+        img.onerror = function() {
+            this.classList.add('hidden');
+        };
+        
+        elements.galleryGrid.appendChild(img);
+    }
 }
 
 /**

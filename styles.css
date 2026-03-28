@@ -714,3 +714,148 @@ input[type="text"]:focus {
     cursor: pointer;
 }
 
+/* Navigation Bar */
+.top-nav {
+    background-color: var(--color-white);
+    border-bottom: 1px solid rgba(203, 161, 53, 0.15);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+}
+
+.top-nav.hidden {
+    display: none;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+}
+
+.nav-logo {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    color: var(--color-saffron);
+    font-weight: 600;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #666;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 500;
+    padding: 0.5rem 0.8rem;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
+
+.nav-link:hover {
+    color: var(--color-deep-green);
+    background-color: rgba(203, 161, 53, 0.05);
+}
+
+.nav-link.active {
+    color: var(--color-saffron);
+    background-color: #fcf7ef;
+    font-weight: 600;
+}
+
+.btn-rsvp {
+    background-color: #cf7c48;
+    color: white;
+    padding: 0.5rem 1.25rem;
+    border-radius: 4px;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    font-family: var(--font-body);
+}
+
+.btn-rsvp:hover {
+    background-color: #b56333;
+}
+
+.nav-toggle {
+    display: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--color-deep-green);
+    user-select: none;
+}
+
+/* SPA Tabs */
+.tab-page {
+    display: block;
+    animation: fadeIn 0.4s ease;
+}
+
+.tab-page.hidden {
+    display: none !important;
+}
+
+/* Gallery Grid */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.gallery-item {
+    width: 100%;
+    aspect-ratio: 4/5;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+    transition: transform 0.3s ease;
+    background-color: rgba(0,0,0,0.03);
+}
+
+.gallery-item:hover {
+    transform: scale(1.02);
+}
+
+.gallery-item.hidden {
+    display: none;
+}
+
+/* Responsive updates for Nav */
+@media (max-width: 768px) {
+    .nav-toggle {
+        display: block;
+    }
+    
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+        background: var(--color-white);
+        padding: 1.5rem;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        border-bottom: 2px solid var(--color-marigold);
+        gap: 1rem;
+    }
+    
+    .nav-links.active {
+        display: flex;
+    }
+}
+

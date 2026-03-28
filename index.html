@@ -44,22 +44,42 @@
     <!-- Main Content hidden behind blur initially -->
     <div id="main-content" class="blurred">
         
-        <!-- Sticky Reopen Button (Mobile first usually) -->
-        <button id="reopen-modal-btn" class="hidden btn-floating" title="Use a different code" aria-label="Use a different code">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-log-out"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" x2="9" y1="12" y2="12"/></svg>
-        </button>
-
-        <header class="hero-section">
-            <div class="hero-content">
-                <p class="hero-pretitle">The Wedding Of</p>
-                <h1 class="couple-names">Tirth <span class="ampersand">&</span> Rhea</h1>
-                <p class="hero-date">August 28 – 30, 2026</p>
-                <div class="hero-divider"></div>
-                <!-- Updated hero title and intro copy exactly as specified -->
-                <h2 class="hero-subtitle">You Are Invited to Celebrate the Wedding Festivities</h2>
-                <p class="hero-copy">With great joy, we invite you to join us in celebrating our wedding across three special events filled with love, laughter, and tradition.</p>
+        <!-- Top Navigation Bar -->
+        <nav id="top-nav" class="top-nav hidden">
+            <div class="nav-container">
+                <div class="nav-logo">Tirth & Rhea</div>
+                <div class="nav-toggle" id="mobile-nav-toggle">&#9776;</div>
+                <ul class="nav-links" id="nav-menu">
+                    <li><a href="#events" class="nav-link active" data-tab="tab-events">Events</a></li>
+                    <li><a href="#gallery" class="nav-link" data-tab="tab-gallery">Gallery</a></li>
+                    <li><a href="http://www.zola.com/registry/tirthandrhea" target="_blank" class="nav-link">Registry</a></li>
+                    <li><button id="nav-rsvp-btn" class="btn btn-rsvp">RSVP</button></li>
+                </ul>
             </div>
-        </header>
+        </nav>
+
+        <!-- Pages Container for SPA -->
+        <div id="pages-container">
+
+            <!-- EVENTS TAB (Default) -->
+            <div id="tab-events" class="tab-page active">
+        
+                <!-- Sticky Reopen Button (Mobile first usually) -->
+                <button id="reopen-modal-btn" class="hidden btn-floating" title="Use a different code" aria-label="Use a different code">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-log-out"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" x2="9" y1="12" y2="12"/></svg>
+                </button>
+
+                <header class="hero-section">
+                    <div class="hero-content">
+                        <p class="hero-pretitle">The Wedding Of</p>
+                        <h1 class="couple-names">Tirth <span class="ampersand">&</span> Rhea</h1>
+                        <p class="hero-date">August 28 – 30, 2026</p>
+                        <div class="hero-divider"></div>
+                        <!-- Updated hero title and intro copy exactly as specified -->
+                        <h2 class="hero-subtitle">You Are Invited to Celebrate the Wedding Festivities</h2>
+                        <p class="hero-copy">With great joy, we invite you to join us in celebrating our wedding across three special events filled with love, laughter, and tradition.</p>
+                    </div>
+                </header>
 
         <main class="container">
             <!-- Personalized Invitation Banner -->
@@ -83,8 +103,33 @@
                 <button id="rsvp-btn-bottom" class="btn btn-primary" style="margin-top: 1rem;">RSVP Now</button>
             </section>
         </main>
+    </div> <!-- End Events Tab -->
 
-        <footer class="footer">
+    <!-- GALLERY TAB -->
+    <div id="tab-gallery" class="tab-page hidden">
+        <!-- Gallery Hero styling built into CSS class .gallery-hero -->
+        <!-- Just reuse the overlay styling structure -->
+        <header class="hero-section gallery-hero" style="min-height: 50vh; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; color: white;">
+            <!-- Simple background image setup via CSS -->
+            <div class="hero-content" style="z-index: 2; position: relative;">
+                <h1 class="couple-names" style="font-size: 3rem; margin-bottom: 0.5rem; text-shadow: 2px 2px 8px rgba(0,0,0,0.5);">Our Gallery</h1>
+                <p class="hero-date" style="letter-spacing: 0.2em; text-shadow: 1px 1px 4px rgba(0,0,0,0.5);">MOMENTS IN TIME</p>
+            </div>
+            <div style="position: absolute; top:0; left:0; right:0; bottom:0; background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.5)); z-index: 1;"></div>
+        </header>
+        <main class="container">
+            <p class="text-center" style="margin: 3.5rem 0 2rem 0; font-family: 'Inter', sans-serif; color: #555; font-size: 1.1rem;">A collection of cherished moments from our journey together.</p>
+            <div id="gallery-grid" class="gallery-grid">
+                <!-- Dynamic images injected here -->
+            </div>
+            <!-- Extra space to prevent footer crashing -->
+            <div style="height: 4rem;"></div>
+        </main>
+    </div>
+
+</div> <!-- End Pages Container -->
+
+<footer class="footer">
             <div class="footer-divider"></div>
             <p class="closing-message">We cannot wait to celebrate this special chapter with you.</p>
             <p class="closing-signature">With love,<br>Tirth and Rhea</p>
