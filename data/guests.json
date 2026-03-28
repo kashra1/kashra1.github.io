@@ -1,0 +1,22 @@
+[
+  {
+    "privateCode": "2001A",
+    "displayName": "Kashikar Family",
+    "inviteTier": "HWR"
+  },
+  {
+    "privateCode": "2002A",
+    "displayName": "Example Family",
+    "inviteTier": "HW"
+  },
+  {
+    "privateCode": "2004A",
+    "displayName": "Example Guest",
+    "inviteTier": "W"
+  },
+  {
+    "privateCode": "2005A",
+    "displayName": "Example Guest",
+    "inviteTier": "R"
+  }
+]
