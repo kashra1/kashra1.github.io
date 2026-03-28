@@ -792,10 +792,6 @@ input[type="text"]:focus {
 
 .nav-toggle {
     display: none;
-    font-size: 1.5rem;
-    cursor: pointer;
-    color: var(--color-deep-green);
-    user-select: none;
 }
 
 /* SPA Tabs */
@@ -823,7 +819,8 @@ input[type="text"]:focus {
     border-radius: 8px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.06);
     transition: transform 0.3s ease;
-    background-color: rgba(0,0,0,0.03);
+    background-color: var(--color-ivory);
+    border: 1px solid rgba(203, 161, 53, 0.15);
 }
 
 .gallery-item:hover {
@@ -831,31 +828,52 @@ input[type="text"]:focus {
 }
 
 .gallery-item.hidden {
-    display: none;
+    display: none !important;
 }
 
 /* Responsive updates for Nav */
 @media (max-width: 768px) {
-    .nav-toggle {
-        display: block;
+    .nav-container {
+        flex-direction: column;
+        justify-content: center;
+        gap: 0.5rem;
+        height: auto;
+        padding: 0.75rem 0.5rem;
+    }
+    
+    .nav-logo {
+        font-size: 1.25rem;
     }
     
     .nav-links {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 70px;
-        left: 0;
-        right: 0;
-        background: var(--color-white);
-        padding: 1.5rem;
-        box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-        border-bottom: 2px solid var(--color-marigold);
-        gap: 1rem;
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        overflow-x: auto;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+        gap: 0.5rem;
+        padding-bottom: 0.25rem;
+        justify-content: center;
     }
     
-    .nav-links.active {
-        display: flex;
+    /* Hide scrollbar for cleaner look */
+    .nav-links::-webkit-scrollbar {
+        display: none;
+    }
+    .nav-links {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+    
+    .nav-link {
+        font-size: 0.85rem;
+        padding: 0.4rem 0.6rem;
+    }
+    
+    .btn-rsvp {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.85rem;
     }
 }
 

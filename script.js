@@ -158,9 +158,13 @@ function init() {
     
     // Navigation Listeners
     elements.navRsvpBtn.addEventListener('click', openRsvpModal);
-    elements.mobileNavToggle.addEventListener('click', () => {
-        elements.navMenu.classList.toggle('active');
-    });
+    
+    // We removed the mobileNavToggle in HTML/CSS to favor horizontal flex
+    if (elements.mobileNavToggle) {
+        elements.mobileNavToggle.addEventListener('click', () => {
+            elements.navMenu.classList.toggle('active');
+        });
+    }
     
     elements.navLinks.forEach(link => {
         link.addEventListener('click', handleTabClick);
@@ -316,8 +320,8 @@ function handleTabClick(e) {
         targetTab.classList.remove('hidden');
     }
     
-    // Close mobile menu if open
-    if (elements.navMenu.classList.contains('active')) {
+    // Close mobile menu if open (safeguard)
+    if (elements.navMenu && elements.navMenu.classList.contains('active')) {
         elements.navMenu.classList.remove('active');
     }
     
@@ -339,9 +343,15 @@ function initGallery() {
         img.alt = 'Gallery Image ' + i;
         img.loading = 'lazy';
         
-        // If image doesn't exist, hide it cleanly
+        // If image doesn't exist, fallback to an aesthetic placeholder
         img.onerror = function() {
-            this.classList.add('hidden');
+            if (this.src.indexOf('placeholder.svg') === -1) {
+                this.src = 'photos/placeholder.svg';
+                this.alt = 'Photo Coming Soon';
+            } else {
+                // If even the placeholder fails, then hide
+                this.classList.add('hidden');
+            }
         };
         
         elements.galleryGrid.appendChild(img);
