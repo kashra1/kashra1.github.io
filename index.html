@@ -18,10 +18,10 @@
             <h2 class="modal-title">Welcome</h2>
             <p class="modal-desc">Please enter your private invitation code to view the wedding details.</p>
             <form id="code-form">
-                <input type="text" id="invite-code" name="invite-code" placeholder="Enter your code (e.g., 2001A)" required autocomplete="off">
+                <input type="text" id="invite-code" name="invite-code" placeholder="Enter your code (e.g., HWR2001A)" required autocomplete="off" aria-label="Invitation Code">
                 <button type="submit" class="btn btn-primary">Enter</button>
             </form>
-            <div id="error-message" class="error-message hidden">We could not find that invitation code. Please try again.</div>
+            <div id="error-message" class="error-message hidden" role="alert">We could not find that invitation code. Please try again.</div>
         </div>
     </div>
 
@@ -29,7 +29,7 @@
     <div id="main-content" class="blurred">
         
         <!-- Sticky Reopen Button (Mobile first usually) -->
-        <button id="reopen-modal-btn" class="hidden btn-floating" title="Not your invite? Enter a different code" aria-label="Enter different code">
+        <button id="reopen-modal-btn" class="hidden btn-floating" title="Use a different code" aria-label="Use a different code">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-log-out"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" x2="9" y1="12" y2="12"/></svg>
         </button>
 
@@ -39,17 +39,19 @@
                 <h1 class="couple-names">Tirth <span class="ampersand">&</span> Rhea</h1>
                 <p class="hero-date">August 28 – 30, 2026</p>
                 <div class="hero-divider"></div>
-                <p class="hero-copy">With great joy, we invite you to join us in celebrating our wedding across special events filled with love, laughter, and tradition.</p>
+                <!-- Updated hero title and intro copy exactly as specified -->
+                <h2 class="hero-subtitle">You Are Invited to Celebrate the Wedding Festivities</h2>
+                <p class="hero-copy">With great joy, we invite you to join us in celebrating our wedding across three special events filled with love, laughter, and tradition.</p>
             </div>
         </header>
 
         <main class="container">
             <!-- Personalized Invitation Banner -->
             <section id="personalized-banner" class="personalized-banner hidden">
-                <h2 id="guest-welcome-msg" class="welcome-heading">Welcome, Guest</h2>
+                <h2 id="guest-welcome-msg" class="welcome-heading">Hi, Guest</h2>
                 <div class="banner-divider"></div>
                 <p id="guest-tier-msg" class="tier-message">You are warmly invited to join us for our celebration.</p>
-                <button id="logout-btn" class="btn btn-secondary btn-small">Not your invite? Enter a different code</button>
+                <button id="logout-btn" class="btn btn-secondary btn-small">Not your invite? Use a different code</button>
             </section>
 
             <!-- Dynamic Event Cards Container -->

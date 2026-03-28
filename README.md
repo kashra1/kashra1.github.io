@@ -10,27 +10,41 @@ Since this website uses static files, the database of guests is located in `data
 
 ```json
 {
-  "privateCode": "2001A",
-  "displayName": "Kashikar Family",
+  "privateCode": "HWR2001A",
+  "displayName": "Tushar Pandit",
   "inviteTier": "HWR"
 }
 ```
 
 *   `privateCode`: The unique code the guest will enter on the website.
-*   `displayName`: The personalized name displayed on the screen (e.g. "Welcome, Kashikar Family").
+*   `displayName`: The personalized name displayed on the screen (e.g. "Hi, Tushar Pandit").
 *   `inviteTier`: The access level for the guest. It determines which events they see. 
 
 ### Available Invite Tiers
 
-*   **HWR**: Invited to Haldi and Mehndi Ceremony, Wedding Ceremony, and Reception.
-*   **HW**: Invited to Haldi and Mehndi Ceremony, and Wedding Ceremony.
-*   **W**: Invited only to Wedding Ceremony.
-*   **R**: Invited only to Reception.
+*   **HWR**: Haldi and Mehndi Ceremony, Wedding Ceremony, and Reception.
+*   **HW**: Haldi and Mehndi Ceremony, and Wedding Ceremony.
+*   **WR**: Wedding Ceremony and Reception.
+*   **W**: Wedding Ceremony only.
+*   **R**: Reception only.
 
 ### Editing / Adding Guests
 1. Open `data/guests.json` in a text editor (or directly via the GitHub website interface).
 2. Add new JSON objects to the array using the format above. 
 3. Make sure you use a trailing comma for all objects except the last one in the list.
+
+### Manual verification still needed
+
+A few source rows were ambiguous and should NOT be silently fabricated. These unresolved rows are:
+- Avery (name visible, code missing)
+- Travis (name visible, code missing)
+- Ryan Ta (name visible, code missing)
+- Ewan (name visible, code missing)
+- WR2003M (code visible, name missing)
+- WR2003N (code visible, name missing)
+- WR2003O (code visible, name missing)
+
+Please manually add these guests once their code/name pairing has been clarified.
 
 ## Deployment to GitHub Pages
 

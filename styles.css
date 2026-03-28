@@ -1,6 +1,7 @@
 /* Color Variables - Indian Maharashtrian Theme */
 :root {
     --color-ivory: #FAF8F2; /* Background */
+    --color-cream: #FDFBF7; /* Soft Cream */
     --color-marigold: #F0A500; /* Vibrant Accents */
     --color-saffron: #E25C2B; /* Warm Highlights */
     --color-gold: #CBA135; /* Elegant Borders/Details */
@@ -231,7 +232,7 @@ input[type="text"]:focus {
 .hero-section {
     text-align: center;
     padding: 7rem 1.5rem 5rem;
-    background: radial-gradient(ellipse at center top, var(--color-white) 0%, var(--color-ivory) 100%);
+    background: radial-gradient(ellipse at center top, var(--color-white) 0%, var(--color-cream) 100%);
     border-bottom: 2px solid rgba(203, 161, 53, 0.15);
     position: relative;
     overflow: hidden;
@@ -240,8 +241,8 @@ input[type="text"]:focus {
 .hero-section::before, .hero-section::after {
     content: '';
     position: absolute;
-    width: 200px;
-    height: 200px;
+    width: 250px;
+    height: 250px;
     border-radius: 50%;
     background: radial-gradient(circle, rgba(240, 165, 0, 0.05) 0%, transparent 70%);
     z-index: 0;
@@ -308,13 +309,21 @@ input[type="text"]:focus {
     margin: 0 auto 2.5rem;
 }
 
+.hero-subtitle {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    color: var(--color-deep-green);
+    margin-bottom: 1rem;
+    font-style: italic;
+    font-weight: 400;
+}
+
 .hero-copy {
     max-width: 640px;
     margin: 0 auto;
-    font-size: 1.25rem;
+    font-size: 1.15rem;
     color: #4a5c55;
-    font-style: italic;
-    font-family: var(--font-heading);
+    font-family: var(--font-body);
     line-height: 1.8;
 }
 
@@ -401,7 +410,7 @@ input[type="text"]:focus {
     padding: 3rem 2.5rem 2rem;
     text-align: center;
     border-bottom: 1px dashed rgba(203, 161, 53, 0.3);
-    background-color: rgba(250, 248, 242, 0.4);
+    background-color: rgba(253, 251, 247, 0.6);
 }
 
 .event-title {
@@ -473,7 +482,7 @@ input[type="text"]:focus {
     color: #555;
     font-family: var(--font-heading);
     font-style: italic;
-    font-size: 1.15rem;
+    font-size: 1.1rem;
     line-height: 1.8;
     text-align: center;
 }

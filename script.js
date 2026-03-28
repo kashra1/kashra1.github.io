@@ -9,25 +9,24 @@
 const SESSION_KEY = 'wedding_guest_session';
 
 // All Possible Events Configuration
-// This maps to the event content required by the user
 const ALL_EVENTS = [
     {
         id: 'haldi',
-        title: 'Haldi & Mehndi Ceremony',
+        title: 'Haldi and Mehndi Ceremony',
         dateStr: 'August 28',
         timeStr: '6:00 PM to 10:00 PM',
         locationName: 'Mosaic Clubhouse',
         locationAddr: '1475 Bayberry View Lane, San Ramon, CA',
         mapQuery: 'Mosaic+Clubhouse+San+Ramon+CA',
         dressCode: 'Indian ethnic casuals in shades of yellow',
-        description: 'An evening of two beautiful pre-wedding traditions. The auspicious Haldi ceremony begins as turmeric paste is lovingly applied to the bride and groom by family and friends, blessing them with radiance and prosperity. The celebrations continue with Mehndi, where intricate henna designs are applied in celebration of the joyous days ahead.',
+        description: 'An evening of two beautiful pre-wedding traditions. The auspicious Haldi ceremony begins as turmeric paste is lovingly applied to the bride and groom by family and friends, blessing them with radiance and prosperity. The celebrations continue with mehndi, where intricate henna designs are applied in celebration of the joyous days ahead.',
         isTimeline: false
     },
     {
         id: 'wedding',
         title: 'Wedding Ceremony',
         dateStr: 'August 30',
-        timeStr: '', // We use a timeline here
+        timeStr: '', // Timeline layout
         locationName: 'Elliston Vineyards',
         locationAddr: '463 Kilkare Rd, Sunol, CA',
         mapQuery: 'Elliston+Vineyards+Sunol',
@@ -35,9 +34,9 @@ const ALL_EVENTS = [
         description: 'The heart of the celebration, Tirth and Rhea’s wedding ceremony performed with Vedic rituals and the beautiful traditions of a Maharashtrian lagna. Come witness the sacred vows that bind two souls for a lifetime.',
         isTimeline: true,
         timelineEvents: [
-            { time: '9:30 AM', name: 'Baraat' },
-            { time: '10:50 AM', name: 'Varmala' },
-            { time: '12:15 PM - 1:30 PM', name: 'Lunch' }
+            { time: 'Baraat –', name: '9:30 AM' },
+            { time: 'Varmala –', name: '10:50 AM' },
+            { time: 'Lunch –', name: '12:15 PM to 1:30 PM' }
         ]
     },
     {
@@ -48,18 +47,18 @@ const ALL_EVENTS = [
         locationName: 'Elliston Vineyards',
         locationAddr: '463 Kilkare Rd, Sunol, CA',
         mapQuery: 'Elliston+Vineyards+Sunol',
-        dressCode: 'Women: lehenga style | Men: blazer',
+        dressCode: 'Women: lehenga style\nMen: blazer',
         description: 'Cap off the celebration with an elegant evening of cocktails, dinner, heartfelt toasts, music, and dancing. Join Tirth and Rhea as they step into their new chapter surrounded by everyone they love.',
         isTimeline: true,
         timelineEvents: [
-            { time: '5:30 PM - 6:30 PM', name: 'Cocktails' },
-            { time: '6:30 PM', name: 'Speeches' },
-            { time: '7:00 PM - 9:00 PM', name: 'Dinner' }
+            { time: 'Cocktails –', name: '5:30 PM to 6:30 PM' },
+            { time: 'Speeches –', name: '6:30 PM' },
+            { time: 'Dinner –', name: '7:00 PM to 9:00 PM' }
         ]
     }
 ];
 
-// Tier mapping logic
+// Tier mapping logic exactly as required
 const TIER_MAPPING = {
     'HWR': {
         events: ['haldi', 'wedding', 'reception'],
@@ -68,6 +67,10 @@ const TIER_MAPPING = {
     'HW': {
         events: ['haldi', 'wedding'],
         message: 'You are warmly invited to join us for our Haldi and Mehndi Ceremony and Wedding Ceremony.'
+    },
+    'WR': {
+        events: ['wedding', 'reception'],
+        message: 'You are warmly invited to join us for our Wedding Ceremony and Reception.'
     },
     'W': {
         events: ['wedding'],
@@ -123,7 +126,7 @@ function init() {
     // Event Listeners
     elements.codeForm.addEventListener('submit', handleLogin);
     elements.logoutBtn.addEventListener('click', handleLogout);
-    elements.reopenModalBtn.addEventListener('click', handleLogout); // the floating button
+    elements.reopenModalBtn.addEventListener('click', handleLogout);
 }
 
 /**
@@ -131,13 +134,12 @@ function init() {
  */
 async function handleLogin(e) {
     e.preventDefault();
-    const code = elements.inviteCodeInput.value.trim().toUpperCase(); // Case-insensitive
+    const inputCode = elements.inviteCodeInput.value.trim().toUpperCase(); 
     
-    if (!code) return;
+    if (!inputCode) return;
 
     elements.errorMessage.classList.add('hidden');
     
-    // Changing button state
     const submitBtn = elements.codeForm.querySelector('button');
     const originalText = submitBtn.textContent;
     submitBtn.textContent = 'Checking...';
@@ -147,17 +149,16 @@ async function handleLogin(e) {
         const response = await fetch('data/guests.json');
         
         if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
+            throw new Error('HTTP error! status: ' + response.status);
         }
         
         const guests = await response.json();
         
-        const guestMatch = guests.find(g => g.privateCode.toUpperCase() === code);
+        const guestMatch = guests.find(g => g.privateCode.trim().toUpperCase() === inputCode);
 
-        // Small simulated delay for smoother UX (creates a sense of "auth checking")
         setTimeout(() => {
             if (guestMatch) {
-                // Success
+                // Success - store exact matched object
                 localStorage.setItem(SESSION_KEY, JSON.stringify(guestMatch));
                 renderAuthenticatedView(guestMatch);
             } else {
@@ -190,9 +191,7 @@ function handleLogout() {
     submitBtn.disabled = false;
     elements.errorMessage.classList.add('hidden');
     
-    // Scroll to top
     window.scrollTo(0, 0);
-    
     showModalView();
 }
 
@@ -204,16 +203,14 @@ function showModalView() {
     elements.mainContent.classList.add('blurred');
     elements.personalizedBanner.classList.add('hidden');
     elements.reopenModalBtn.classList.add('hidden');
-    elements.eventsContainer.innerHTML = ''; // Clear events
+    elements.eventsContainer.innerHTML = '';
     
-    // Re-focus input after transition
     setTimeout(() => {
         elements.inviteCodeInput.focus();
     }, 400);
 }
 
 function renderAuthenticatedView(guestData) {
-    // Hide modal, show content
     elements.modalOverlay.classList.add('hidden');
     elements.mainContent.classList.remove('blurred');
     elements.personalizedBanner.classList.remove('hidden');
@@ -221,29 +218,25 @@ function renderAuthenticatedView(guestData) {
     
     const tierConfig = TIER_MAPPING[guestData.inviteTier];
 
-    // If tier doesn't exist (malformed data), fallback safely
     if (!tierConfig) {
-        console.error(`Invalid invite tier: ${guestData.inviteTier}`);
+        console.error('Invalid invite tier: ' + guestData.inviteTier);
         handleLogout();
         return;
     }
 
-    // Set Welcome Messages
-    elements.guestWelcomeMsg.textContent = `Welcome, ${guestData.displayName}`;
+    // Exact greeting format
+    elements.guestWelcomeMsg.textContent = 'Hi, ' + guestData.displayName;
     elements.guestTierMsg.textContent = tierConfig.message;
 
-    // Filter and Render Events
     const eventsToRender = ALL_EVENTS.filter(event => tierConfig.events.includes(event.id));
     
-    elements.eventsContainer.innerHTML = ''; // Clear existing
+    elements.eventsContainer.innerHTML = ''; 
     
-    // Slight delay for rendering events to allow blur transition
     setTimeout(() => {
         eventsToRender.forEach((event, index) => {
             const card = createEventCard(event);
-            // Add staggered entrance animations
-            card.style.animation = `slideUp 0.5s ease backwards`;
-            card.style.animationDelay = `${0.1 * index}s`;
+            card.style.animation = 'slideUp 0.5s ease backwards';
+            card.style.animationDelay = (0.1 * index) + 's';
             elements.eventsContainer.append(card);
         });
     }, 100);
@@ -256,57 +249,51 @@ function createEventCard(eventData) {
     const card = document.createElement('div');
     card.className = 'event-card';
 
-    // Timeline template logic
     let timeHtml = '';
     if (eventData.isTimeline && eventData.timelineEvents) {
         const timelineItems = eventData.timelineEvents.map(t => 
-            `<div class="timeline-item"><strong>${t.time}</strong> ${t.name}</div>`
+            '<div class="timeline-item"><strong>' + t.time + '</strong> ' + t.name + '</div>'
         ).join('');
-        timeHtml = `<div class="timeline">${timelineItems}</div>`;
+        timeHtml = '<div class="timeline">' + timelineItems + '</div>';
     } else {
-        timeHtml = `<p>${eventData.timeStr}</p>`;
+        timeHtml = '<p>' + eventData.timeStr + '</p>';
     }
 
-    card.innerHTML = `
-        <div class="event-card-accent"></div>
-        <div class="event-header">
-            <h3 class="event-title">${eventData.title}</h3>
-            <p class="event-date">${eventData.dateStr}</p>
-        </div>
-        <div class="event-body">
-            
-            <div class="detail-row">
-                <div class="detail-icon">${icons.clock}</div>
-                <div class="detail-content">
-                    <h4>Time</h4>
-                    ${timeHtml}
-                </div>
-            </div>
+    let dressCodeHtml = eventData.dressCode.replace(/\n/g, '<br>');
 
-            <div class="detail-row">
-                <div class="detail-icon">${icons.mapPin}</div>
-                <div class="detail-content">
-                    <h4>Location</h4>
-                    <p><strong>${eventData.locationName}</strong></p>
-                    <p>${eventData.locationAddr}</p>
-                    <a href="https://www.google.com/maps/search/?api=1&query=${eventData.mapQuery}" target="_blank" rel="noopener noreferrer" class="map-link">
-                        Get Directions ${icons.externalLink}
-                    </a>
-                </div>
-            </div>
-
-            <div class="detail-row">
-                <div class="detail-icon">${icons.shirt}</div>
-                <div class="detail-content">
-                    <h4>Dress Code</h4>
-                    <p>${eventData.dressCode}</p>
-                </div>
-            </div>
-
-            <p class="event-description">${eventData.description}</p>
-
-        </div>
-    `;
+    card.innerHTML = 
+        '<div class="event-card-accent"></div>' +
+        '<div class="event-header">' +
+            '<h3 class="event-title">' + eventData.title + '</h3>' +
+            '<p class="event-date">' + eventData.dateStr + '</p>' +
+        '</div>' +
+        '<div class="event-body">' +
+            '<div class="detail-row">' +
+                '<div class="detail-icon">' + icons.clock + '</div>' +
+                '<div class="detail-content">' +
+                    '<h4>Time</h4>' + timeHtml +
+                '</div>' +
+            '</div>' +
+            '<div class="detail-row">' +
+                '<div class="detail-icon">' + icons.mapPin + '</div>' +
+                '<div class="detail-content">' +
+                    '<h4>Location</h4>' +
+                    '<p><strong>' + eventData.locationName + '</strong></p>' +
+                    '<p>' + eventData.locationAddr + '</p>' +
+                    '<a href="https://www.google.com/maps/search/?api=1&query=' + eventData.mapQuery + '" target="_blank" rel="noopener noreferrer" class="map-link">' +
+                        'Get Directions ' + icons.externalLink +
+                    '</a>' +
+                '</div>' +
+            '</div>' +
+            '<div class="detail-row">' +
+                '<div class="detail-icon">' + icons.shirt + '</div>' +
+                '<div class="detail-content">' +
+                    '<h4>Dress Code</h4>' +
+                    '<p>' + dressCodeHtml + '</p>' +
+                '</div>' +
+            '</div>' +
+            '<p class="event-description">' + eventData.description + '</p>' +
+        '</div>';
 
     return card;
 }
