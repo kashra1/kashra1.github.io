@@ -8,7 +8,7 @@
 
 const SESSION_KEY = 'wedding_guest_session';
 // TODO: Add your Google Apps Script Web App URL here after following the rsvp/README.md instructions
-const RSVP_WEB_APP_URL = ''; 
+const RSVP_WEB_APP_URL = 'https://script.google.com/macros/s/AKfycby1FklTGY7o4pICiS39neHzXtVLzI9qIU9n4C_1NVADVGz0VerQVe4ctotgzJFsUwRd/exec'; 
 
 // All Possible Events Configuration
 const ALL_EVENTS = [
