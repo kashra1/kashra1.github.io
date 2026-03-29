@@ -277,7 +277,10 @@
     }
     </style>
         <div class="modal-card">
-            <h2 class="modal-title">Welcome</h2>
+            <div class="ganesha-icon-container">
+                <img src="ganesha-header.jpg" alt="Shree Ganeshay Namah" class="ganesha-icon-img">
+            </div>
+            <h2 class="modal-title">Welcome to the wedding of Tirth & Rhea</h2>
             <p class="modal-desc">Please enter your private invitation code to view the wedding details.</p>
             <form id="code-form">
                 <input type="text" id="invite-code" name="invite-code" placeholder="Enter your code (e.g., XYZ5792G)" required autocomplete="off" aria-label="Invitation Code">
@@ -363,6 +366,7 @@
             <section id="bottom-rsvp-section" class="personalized-banner hidden" style="margin-top: 2rem; margin-bottom: 4rem;">
                 <h2 class="welcome-heading" style="font-size: 1.8rem;">We’d love to celebrate this milestone with you. Please let us know if you can make it.</h2>
                 <button id="rsvp-btn-bottom" class="btn btn-primary" style="margin-top: 1rem;">RSVP Now</button>
+                <p style="font-size: 0.85rem; color: #666; margin-top: 1.5rem; font-style: italic;">Parking is limited at the venue — we kindly encourage guests to carpool whenever possible.</p>
             </section>
         </main>
     </div> <!-- End Events Tab -->
@@ -370,14 +374,13 @@
     <!-- GALLERY TAB -->
     <div id="tab-gallery" class="tab-page hidden">
         <!-- Gallery Hero styling built into CSS class .gallery-hero -->
-        <!-- Just reuse the overlay styling structure -->
-        <header class="hero-section gallery-hero" style="min-height: 50vh; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; color: white;">
-            <!-- Simple background image setup via CSS -->
+        <header class="hero-section" style="min-height: 40vh; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden;">
             <div class="hero-content" style="z-index: 2; position: relative;">
-                <h1 class="couple-names" style="font-size: 3rem; margin-bottom: 0.5rem; text-shadow: 2px 2px 8px rgba(0,0,0,0.5);">Our Gallery</h1>
-                <p class="hero-date" style="letter-spacing: 0.2em; text-shadow: 1px 1px 4px rgba(0,0,0,0.5);">MOMENTS IN TIME</p>
+                <p class="hero-pretitle">Memories</p>
+                <h1 class="couple-names" style="font-size: clamp(3rem, 6vw, 4rem); margin-bottom: 0.5rem;">Our Gallery</h1>
+                <div class="hero-divider" style="margin-bottom: 1.5rem;"></div>
+                <p class="hero-date" style="margin-top: 0; margin-bottom: 0;">MOMENTS IN TIME</p>
             </div>
-            <div style="position: absolute; top:0; left:0; right:0; bottom:0; background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.5)); z-index: 1;"></div>
         </header>
         <main class="container">
             <p class="text-center" style="margin: 3.5rem 0 2rem 0; font-family: 'Inter', sans-serif; color: #555; font-size: 1.1rem;">A collection of cherished moments from our journey together.</p>
