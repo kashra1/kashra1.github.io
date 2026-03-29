@@ -16,11 +16,11 @@ const ALL_EVENTS = [
         id: 'haldi',
         title: 'Haldi and Mehndi Ceremony',
         dateStr: 'August 28',
-        timeStr: '6:00 PM to 10:00 PM',
+        timeStr: '5:30 PM to 9:30 PM',
         locationName: 'Mosaic Clubhouse',
         locationAddr: '1475 Bayberry View Lane, San Ramon, CA',
         mapQuery: 'Mosaic+Clubhouse+San+Ramon+CA',
-        dressCode: 'Indian ethnic casuals in shades of yellow',
+        dressCode: 'Indian Ethnic Casuals in hues of Yellow and Henna Green',
         description: 'An evening of two beautiful pre-wedding traditions. The auspicious Haldi ceremony begins as turmeric paste is lovingly applied to the bride and groom by family and friends, blessing them with radiance and prosperity. The celebrations continue with mehndi, where intricate henna designs are applied in celebration of the joyous days ahead.',
         isTimeline: false
     },
@@ -32,7 +32,7 @@ const ALL_EVENTS = [
         locationName: 'Elliston Vineyards',
         locationAddr: '463 Kilkare Rd, Sunol, CA',
         mapQuery: 'Elliston+Vineyards+Sunol',
-        dressCode: 'Indian ethnic attire for men and women',
+        dressCode: 'Traditional Indian Attire – Women: Sarees and gentlemen: Kurta/Pajama',
         description: 'The heart of the celebration, Tirth and Rhea’s wedding ceremony performed with Vedic rituals and the beautiful traditions of a Maharashtrian lagna. Come witness the sacred vows that bind two souls for a lifetime.',
         isTimeline: true,
         timelineEvents: [
@@ -49,7 +49,7 @@ const ALL_EVENTS = [
         locationName: 'Elliston Vineyards',
         locationAddr: '463 Kilkare Rd, Sunol, CA',
         mapQuery: 'Elliston+Vineyards+Sunol',
-        dressCode: 'Women: lehenga style\nMen: blazer',
+        dressCode: 'Women: Lehenga-Inspired Attire and gentlemen: Blazer/Formal Jacket',
         description: 'Cap off the celebration with an elegant evening of cocktails, dinner, heartfelt toasts, music, and dancing. Join Tirth and Rhea as they step into their new chapter surrounded by everyone they love.',
         isTimeline: true,
         timelineEvents: [

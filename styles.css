@@ -37,14 +37,26 @@ body {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: var(--color-bg-overlay);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    background-color: #000;
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 1000;
     transition: opacity var(--transition-speed) ease, visibility var(--transition-speed);
+    overflow: hidden;
+}
+
+.modal-overlay::before {
+    content: '';
+    position: absolute;
+    top: -5%;
+    left: -5%;
+    right: -5%;
+    bottom: -5%;
+    background: url('wedding-venue-hero.jpg') no-repeat center center;
+    background-size: cover;
+    opacity: 0.4;
+    z-index: -1;
 }
 
 .modal-overlay.hidden {
@@ -280,6 +292,24 @@ input[type="text"]:focus {
     margin-bottom: 0.5rem;
     line-height: 1.1;
     font-weight: 600;
+}
+
+.ganesha-icon-container {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 1.5rem;
+    background-color: var(--color-saffron);
+    mix-blend-mode: multiply;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ganesha-icon-img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    mix-blend-mode: screen;
 }
 
 .ampersand {
@@ -580,10 +610,12 @@ input[type="text"]:focus {
 }
 
 .closing-signature {
-    font-size: 1.2rem;
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
     color: var(--color-saffron);
+    font-style: italic;
     font-weight: 500;
-    line-height: 1.6;
+    line-height: 1.4;
 }
 
 /* Responsive */
