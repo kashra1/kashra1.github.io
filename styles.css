@@ -373,49 +373,31 @@ input[type="text"]:focus {
 }
 
 .gooey-text-morph {
-    position: relative;
-    display: inline-flex;
-    justify-content: flex-start;
-    align-items: center;
-    width: 9.4ch;
-    min-height: 1.8em;
+    display: inline-block;
+    min-width: 5.8rem;
     color: var(--color-saffron);
     font-family: var(--font-body);
     font-size: 1em;
     font-weight: 700;
     line-height: inherit;
-    isolation: isolate;
+    vertical-align: baseline;
 }
 
-.gooey-text-filter {
-    position: absolute;
-    width: 0;
-    height: 0;
-    overflow: hidden;
-}
-
-.gooey-text-stage {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    overflow: visible;
-}
-
-.gooey-text {
-    position: absolute;
-    left: 0;
-    top: 50%;
+.gooey-text-current {
+    display: inline-block;
     color: var(--gooey-color, var(--color-saffron));
     text-align: left;
-    line-height: 1.2;
+    line-height: inherit;
     white-space: nowrap;
-    transform: translateY(-50%);
+    transition: opacity 0.22s ease, transform 0.22s ease, color 0.22s ease;
     text-shadow:
         0 0 8px rgba(203, 161, 53, 0.24),
         0 1px 10px rgba(36, 59, 53, 0.07);
-    will-change: filter, opacity;
+}
+
+.gooey-text-morph.is-changing .gooey-text-current {
+    opacity: 0.35;
+    transform: translateY(-1px);
 }
 
 .hero-subtitle {
@@ -731,7 +713,7 @@ input[type="text"]:focus {
     }
 
     .gooey-text-morph {
-        width: 9.4ch;
+        min-width: 5.4rem;
         font-size: 1em;
     }
     
@@ -758,18 +740,9 @@ input[type="text"]:focus {
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .gooey-text-stage {
-        filter: none;
-    }
-
     .gooey-text-current {
         opacity: 1 !important;
-        filter: none !important;
-    }
-
-    .gooey-text-next {
-        opacity: 0 !important;
-        filter: none !important;
+        transform: none !important;
     }
 }
 

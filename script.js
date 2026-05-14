@@ -173,12 +173,9 @@ function init() {
     });
 }
 
-/**
- * Home hero gooey text morphing.
- */
 function initGooeyTextMorphs() {
     const morphs = document.querySelectorAll('[data-gooey-texts]');
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const colors = [
         'var(--color-saffron)',
         'var(--color-muted-rose)',
@@ -192,80 +189,35 @@ function initGooeyTextMorphs() {
             .split('|')
             .map(text => text.trim())
             .filter(Boolean);
-        const currentText = root.querySelector('.gooey-text-current');
-        const nextText = root.querySelector('.gooey-text-next');
+        const textElement = root.querySelector('.gooey-text-current');
 
-        if (texts.length < 2 || !currentText || !nextText) {
+        if (texts.length < 2 || !textElement) {
             return;
         }
 
-        const morphTime = Number(root.dataset.morphTime) || 1;
-        const cooldownTime = Number(root.dataset.cooldownTime) || 0.45;
-        let currentIndex = 0;
-        let nextIndex = 1;
-        let cooldown = cooldownTime;
-        let morph = 0;
-        let lastTime = performance.now();
+        let textIndex = 0;
+        const cycleTime = Number(root.dataset.cycleTime) || 1700;
 
-        const applyTextPair = () => {
-            currentText.textContent = texts[currentIndex];
-            nextText.textContent = texts[nextIndex];
-            currentText.style.setProperty('--gooey-color', colors[currentIndex % colors.length]);
-            nextText.style.setProperty('--gooey-color', colors[nextIndex % colors.length]);
+        const applyText = () => {
+            textElement.textContent = texts[textIndex];
+            textElement.style.setProperty('--gooey-color', colors[textIndex % colors.length]);
         };
 
-        const showCurrent = () => {
-            currentText.style.filter = '';
-            currentText.style.opacity = '100%';
-            nextText.style.filter = '';
-            nextText.style.opacity = '0%';
-        };
-
-        const setMorph = fraction => {
-            const blurAmount = 2;
-            const nextFraction = Math.max(fraction, 0.001);
-            const currentFraction = Math.max(1 - fraction, 0.001);
-
-            nextText.style.filter = 'blur(' + Math.min(blurAmount / nextFraction - blurAmount, 32) + 'px)';
-            nextText.style.opacity = (Math.pow(fraction, 0.4) * 100) + '%';
-            currentText.style.filter = 'blur(' + Math.min(blurAmount / currentFraction - blurAmount, 32) + 'px)';
-            currentText.style.opacity = (Math.pow(1 - fraction, 0.4) * 100) + '%';
-        };
+        applyText();
 
         if (prefersReducedMotion) {
-            applyTextPair();
-            showCurrent();
             return;
         }
 
-        const animate = now => {
-            const delta = (now - lastTime) / 1000;
-            lastTime = now;
+        setInterval(() => {
+            root.classList.add('is-changing');
 
-            if (cooldown > 0) {
-                cooldown -= delta;
-                showCurrent();
-            } else {
-                morph += delta;
-                const fraction = Math.min(morph / morphTime, 1);
-                setMorph(fraction);
-
-                if (fraction === 1) {
-                    currentIndex = nextIndex;
-                    nextIndex = (nextIndex + 1) % texts.length;
-                    morph = 0;
-                    cooldown = cooldownTime;
-                    applyTextPair();
-                    showCurrent();
-                }
-            }
-
-            requestAnimationFrame(animate);
-        };
-
-        applyTextPair();
-        showCurrent();
-        requestAnimationFrame(animate);
+            setTimeout(() => {
+                textIndex = (textIndex + 1) % texts.length;
+                applyText();
+                root.classList.remove('is-changing');
+            }, 180);
+        }, cycleTime);
     });
 }
 
