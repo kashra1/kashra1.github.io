@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=3">
+    <link rel="stylesheet" href="styles.css?v=4">
 </head>
 <body>
 
@@ -320,6 +320,7 @@
                     <li><a href="#events" class="nav-link active" data-tab="tab-events">Home</a></li>
                     <li><a href="#rituals" class="nav-link" data-tab="tab-rituals">Rituals</a></li>
                     <li><a href="#gallery" class="nav-link" data-tab="tab-gallery">Gallery</a></li>
+                    <li><a href="https://www.dropbox.com/request/m6wx17jvdc94hx1hqfr4" target="_blank" rel="noopener noreferrer" class="nav-link nav-upload-link">Upload Photos</a></li>
                     <li><a href="http://www.zola.com/registry/tirthandrhea" target="_blank" class="nav-link">Registry</a></li>
                     <li><button id="nav-rsvp-btn" class="btn btn-rsvp">RSVP</button></li>
                 </ul>
@@ -636,6 +637,19 @@
         </header>
         <main class="container">
             <p class="text-center" style="margin: 3.5rem 0 2rem 0; font-family: 'Inter', sans-serif; color: #555; font-size: 1.1rem;">A collection of cherished moments from our journey together.</p>
+            <section class="photo-upload-callout" aria-labelledby="photo-upload-title">
+                <div class="photo-upload-copy">
+                    <p class="section-kicker">Share the Love</p>
+                    <h2 id="photo-upload-title">Upload Your Photos</h2>
+                    <p>Please click the button below to upload and share any photos you capture during our celebration. We'd love to see the day through your eyes!</p>
+                    <p class="photo-upload-note">Photos and short video clips are welcome. Dropbox may ask for your name so we know who shared each memory.</p>
+                    <a class="btn btn-primary photo-upload-btn" href="https://www.dropbox.com/request/m6wx17jvdc94hx1hqfr4" target="_blank" rel="noopener noreferrer">Upload Your Photos</a>
+                </div>
+                <a class="photo-upload-qr" href="https://www.dropbox.com/request/m6wx17jvdc94hx1hqfr4" target="_blank" rel="noopener noreferrer" aria-label="Open wedding photo upload form">
+                    <img src="dropbox-photo-upload-qr.svg" alt="QR code for uploading wedding photos">
+                    <span>Scan to upload</span>
+                </a>
+            </section>
             <div id="gallery-grid" class="gallery-grid">
                 <!-- Dynamic images injected here -->
             </div>
