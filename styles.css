@@ -312,6 +312,21 @@ input[type="text"]:focus {
     mix-blend-mode: screen;
 }
 
+#tab-events .hero-section .ganesha-icon-container {
+    border-radius: 50%;
+    transition: transform 0.35s ease, box-shadow 0.35s ease, filter 0.35s ease;
+    will-change: transform, box-shadow, filter;
+}
+
+#tab-events .hero-section .ganesha-icon-container:hover {
+    transform: scale(1.12);
+    box-shadow:
+        0 0 18px rgba(203, 161, 53, 0.85),
+        0 0 42px rgba(240, 165, 0, 0.55),
+        0 0 82px rgba(255, 226, 129, 0.42);
+    filter: saturate(1.15) brightness(1.08);
+}
+
 .ampersand {
     color: var(--color-saffron);
     font-style: italic;
