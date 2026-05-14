@@ -205,11 +205,13 @@ function initGooeyTextMorphs() {
 
         applyText();
 
-        if (prefersReducedMotion) {
-            return;
-        }
-
         setInterval(() => {
+            if (prefersReducedMotion) {
+                textIndex = (textIndex + 1) % texts.length;
+                applyText();
+                return;
+            }
+
             root.classList.add('is-changing');
 
             setTimeout(() => {

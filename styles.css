@@ -389,15 +389,17 @@ input[type="text"]:focus {
     text-align: left;
     line-height: inherit;
     white-space: nowrap;
-    transition: opacity 0.22s ease, transform 0.22s ease, color 0.22s ease;
+    transition: opacity 0.24s ease, transform 0.24s ease, filter 0.24s ease, color 0.22s ease;
+    will-change: opacity, transform, filter;
     text-shadow:
         0 0 8px rgba(203, 161, 53, 0.24),
         0 1px 10px rgba(36, 59, 53, 0.07);
 }
 
 .gooey-text-morph.is-changing .gooey-text-current {
+    filter: blur(2.5px);
     opacity: 0.35;
-    transform: translateY(-1px);
+    transform: translateY(-1px) scale(0.98);
 }
 
 .hero-subtitle {
@@ -741,6 +743,7 @@ input[type="text"]:focus {
 
 @media (prefers-reduced-motion: reduce) {
     .gooey-text-current {
+        filter: none !important;
         opacity: 1 !important;
         transform: none !important;
     }
