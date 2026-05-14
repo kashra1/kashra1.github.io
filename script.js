@@ -32,8 +32,8 @@ const ALL_EVENTS = [
         locationName: 'Elliston Vineyards',
         locationAddr: '463 Kilkare Rd, Sunol, CA',
         mapQuery: 'Elliston+Vineyards+Sunol',
-        dressCode: 'Traditional Indian Attire – Women: Sarees and gentlemen: Kurta/Pajama',
-        description: 'The heart of the celebration, Tirth and Rhea’s wedding ceremony performed with Vedic rituals and the beautiful traditions of a Maharashtrian lagna. Come witness the sacred vows that bind two souls for a lifetime.',
+        dressCode: 'Traditional Indian attire - women: sarees; gentlemen: kurta pajamas',
+        description: 'The heart of the celebration, Tirth and Rhea’s wedding ceremony is performed with Vedic rituals and beautiful family traditions. Come witness the sacred vows that bind two souls for a lifetime.',
         isTimeline: true,
         timelineEvents: [
             { time: 'Baraat –', name: '9:30 AM' },
@@ -298,7 +298,13 @@ function renderAuthenticatedView(guestData) {
  * Tab Navigation Logic
  */
 function handleTabClick(e) {
-    // Only prevent default if it's an internal # anchor
+    const targetTabId = e.currentTarget.dataset.tab;
+
+    if (!targetTabId) {
+        return;
+    }
+
+    // Only prevent default for tab links. External links should behave normally.
     const href = e.currentTarget.getAttribute('href');
     if (href && href.startsWith('#')) {
         e.preventDefault();
@@ -314,7 +320,6 @@ function handleTabClick(e) {
     elements.tabPages.forEach(page => page.classList.add('hidden'));
     
     // Show target tab
-    const targetTabId = e.currentTarget.dataset.tab;
     const targetTab = document.getElementById(targetTabId);
     if (targetTab) {
         targetTab.classList.remove('hidden');
