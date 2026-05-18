@@ -32,7 +32,7 @@ const ALL_EVENTS = [
         locationName: 'Elliston Vineyards',
         locationAddr: '463 Kilkare Rd, Sunol, CA',
         mapQuery: 'Elliston+Vineyards+Sunol',
-        dressCode: 'Traditional Indian Attire<span class="dress-code-sub">• <strong>Women:</strong> Sarees</span><span class="dress-code-sub">• <strong>Gentlemen:</strong> Kurta Pajamas</span>',
+        dressCode: 'Traditional Indian Attire<span class="dress-code-sub">• <strong>Women:</strong> Sarees</span><span class="dress-code-sub">• <strong>Gentlemen:</strong> Kurta</span>',
         description: 'The heart of the celebration, Tirth and Rhea’s wedding ceremony is performed with Vedic rituals and beautiful family traditions. Come witness the sacred vows that bind two souls for a lifetime.',
         isTimeline: true,
         timelineEvents: [
