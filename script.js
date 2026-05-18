@@ -20,7 +20,7 @@ const ALL_EVENTS = [
         locationName: 'Mosaic Clubhouse',
         locationAddr: '1475 Bayberry View Lane, San Ramon, CA',
         mapQuery: 'Mosaic+Clubhouse+San+Ramon+CA',
-        dressCode: 'Indian Ethnic Casuals in hues of Yellow and Henna Green',
+        dressCode: 'Indian Ethnic Casuals<span class="dress-code-sub">• Hues of Yellow and Henna Green</span>',
         description: 'An evening of two beautiful pre-wedding traditions. The auspicious Haldi ceremony begins as turmeric paste is lovingly applied to the bride and groom by family and friends, blessing them with radiance and prosperity. The celebrations continue with mehndi, where intricate henna designs are applied in celebration of the joyous days ahead.',
         isTimeline: false
     },
@@ -32,7 +32,7 @@ const ALL_EVENTS = [
         locationName: 'Elliston Vineyards',
         locationAddr: '463 Kilkare Rd, Sunol, CA',
         mapQuery: 'Elliston+Vineyards+Sunol',
-        dressCode: 'Traditional Indian attire - women: sarees; gentlemen: kurta pajamas',
+        dressCode: 'Traditional Indian Attire<span class="dress-code-sub">• <strong>Women:</strong> Sarees</span><span class="dress-code-sub">• <strong>Gentlemen:</strong> Kurta Pajamas</span>',
         description: 'The heart of the celebration, Tirth and Rhea’s wedding ceremony is performed with Vedic rituals and beautiful family traditions. Come witness the sacred vows that bind two souls for a lifetime.',
         isTimeline: true,
         timelineEvents: [
@@ -49,7 +49,7 @@ const ALL_EVENTS = [
         locationName: 'Elliston Vineyards',
         locationAddr: '463 Kilkare Rd, Sunol, CA',
         mapQuery: 'Elliston+Vineyards+Sunol',
-        dressCode: 'Women: Lehenga-Inspired Attire and gentlemen: Blazer/Formal Jacket',
+        dressCode: 'Formal / Fusion Attire<span class="dress-code-sub">• <strong>Women:</strong> Lehenga-Inspired Attire</span><span class="dress-code-sub">• <strong>Gentlemen:</strong> Blazer / Formal Jacket</span>',
         description: 'Cap off the celebration with an elegant evening of cocktails, dinner, heartfelt toasts, music, and dancing. Join Tirth and Rhea as they step into their new chapter surrounded by everyone they love.',
         isTimeline: true,
         timelineEvents: [

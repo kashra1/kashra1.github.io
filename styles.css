@@ -568,6 +568,14 @@ input[type="text"]:focus {
     line-height: 1.5;
 }
 
+.dress-code-sub {
+    display: block;
+    margin-top: 0.4rem;
+    padding-left: 0.75rem;
+    font-size: 0.95rem;
+    color: #555;
+}
+
 .event-description {
     margin-top: 2.5rem;
     padding-top: 2rem;
