@@ -20,11 +20,6 @@
     "inviteTier": "W"
   },
   {
-    "privateCode": "R2005A",
-    "displayName": "Deepak Kurdekar",
-    "inviteTier": "R"
-  },
-  {
     "privateCode": "HWR2001A2",
     "displayName": "Sarika Pandit",
     "inviteTier": "HWR"
@@ -36,18 +31,13 @@
   },
   {
     "privateCode": "WR2003A2",
-    "displayName": "Mr. Parekh",
+    "displayName": "Mr. Jay Parekh",
     "inviteTier": "WR"
   },
   {
     "privateCode": "W2004A2",
     "displayName": "Mangesh",
     "inviteTier": "W"
-  },
-  {
-    "privateCode": "R2005A2",
-    "displayName": "Namita Kurdekar",
-    "inviteTier": "R"
   },
   {
     "privateCode": "HWR2001A3",
@@ -70,34 +60,14 @@
     "inviteTier": "HW"
   },
   {
-    "privateCode": "WR2003B",
-    "displayName": "Kedar Tamhankar",
-    "inviteTier": "WR"
-  },
-  {
     "privateCode": "W2004B",
     "displayName": "Shilpa Joshi",
     "inviteTier": "W"
   },
   {
-    "privateCode": "R2005B",
-    "displayName": "Preethi",
-    "inviteTier": "R"
-  },
-  {
-    "privateCode": "WR2003B2",
-    "displayName": "Kanchan Tamhankar",
-    "inviteTier": "WR"
-  },
-  {
     "privateCode": "W2004B2",
     "displayName": "Praveen Joshi",
     "inviteTier": "W"
-  },
-  {
-    "privateCode": "R2005C",
-    "displayName": "Siva",
-    "inviteTier": "R"
   },
   {
     "privateCode": "HWR2001B",
@@ -108,21 +78,6 @@
     "privateCode": "HW2002B",
     "displayName": "Miti Patel",
     "inviteTier": "HW"
-  },
-  {
-    "privateCode": "WR2003B3",
-    "displayName": "Janhavi Tamhankar",
-    "inviteTier": "WR"
-  },
-  {
-    "privateCode": "WR2003B4",
-    "displayName": "Gangadhar Thakur",
-    "inviteTier": "HWR"
-  },
-  {
-    "privateCode": "R2005D",
-    "displayName": "Sarfaraz",
-    "inviteTier": "R"
   },
   {
     "privateCode": "HWR2001B2",
@@ -140,11 +95,6 @@
     "inviteTier": "W"
   },
   {
-    "privateCode": "R2005E",
-    "displayName": "Alok",
-    "inviteTier": "R"
-  },
-  {
     "privateCode": "HWR2001B3",
     "displayName": "Neel Redkar",
     "inviteTier": "HWR"
@@ -160,24 +110,14 @@
     "inviteTier": "W"
   },
   {
-    "privateCode": "R2005F",
-    "displayName": "Srini",
-    "inviteTier": "R"
-  },
-  {
     "privateCode": "HWR2001B4",
-    "displayName": "Nikita Radkar",
+    "displayName": "Nikita Redkar",
     "inviteTier": "HWR"
   },
   {
     "privateCode": "WR2003C2",
     "displayName": "Supriya Brahme",
     "inviteTier": "WR"
-  },
-  {
-    "privateCode": "R2005G",
-    "displayName": "Akshay",
-    "inviteTier": "R"
   },
   {
     "privateCode": "WR2003C3",
@@ -190,11 +130,6 @@
     "inviteTier": "W"
   },
   {
-    "privateCode": "R2005H",
-    "displayName": "Venky",
-    "inviteTier": "R"
-  },
-  {
     "privateCode": "HWR2001C",
     "displayName": "Sanjeev Sagar",
     "inviteTier": "HWR"
@@ -205,34 +140,14 @@
     "inviteTier": "W"
   },
   {
-    "privateCode": "R2005J",
-    "displayName": "Alex",
-    "inviteTier": "R"
-  },
-  {
     "privateCode": "HWR2001C2",
     "displayName": "Poonam Sagar",
     "inviteTier": "HWR"
   },
   {
-    "privateCode": "WR2003D",
-    "displayName": "Sachin Chavhate",
-    "inviteTier": "WR"
-  },
-  {
-    "privateCode": "R2005K",
-    "displayName": "Ajay",
-    "inviteTier": "R"
-  },
-  {
     "privateCode": "HWR2001C3",
     "displayName": "Shuban Sagar",
     "inviteTier": "HWR"
-  },
-  {
-    "privateCode": "WR2003D2",
-    "displayName": "Varsha Chavhate",
-    "inviteTier": "WR"
   },
   {
     "privateCode": "W2004E",
@@ -245,24 +160,9 @@
     "inviteTier": "HWR"
   },
   {
-    "privateCode": "WR2003D3",
-    "displayName": "Arya Chavhate",
-    "inviteTier": "WR"
-  },
-  {
     "privateCode": "W2004E2",
     "displayName": "Shilpa Bodas",
     "inviteTier": "W"
-  },
-  {
-    "privateCode": "R2005L",
-    "displayName": "Jim Kai",
-    "inviteTier": "R"
-  },
-  {
-    "privateCode": "WR2003D4",
-    "displayName": "Isha Chavhate",
-    "inviteTier": "WR"
   },
   {
     "privateCode": "HWR2001D",
@@ -273,11 +173,6 @@
     "privateCode": "W2004F",
     "displayName": "Girish Kulkarni",
     "inviteTier": "W"
-  },
-  {
-    "privateCode": "R2005M",
-    "displayName": "Sazhida",
-    "inviteTier": "R"
   },
   {
     "privateCode": "HWR2001D2",
@@ -300,11 +195,6 @@
     "inviteTier": "HWR"
   },
   {
-    "privateCode": "R2005N",
-    "displayName": "Nepali",
-    "inviteTier": "R"
-  },
-  {
     "privateCode": "HWR2001D4",
     "displayName": "Hemakshat Sharma",
     "inviteTier": "HWR"
@@ -321,13 +211,8 @@
   },
   {
     "privateCode": "W2004G2",
-    "displayName": "mom",
+    "displayName": "Shuba Ramiah",
     "inviteTier": "W"
-  },
-  {
-    "privateCode": "R2005O",
-    "displayName": "Anith",
-    "inviteTier": "R"
   },
   {
     "privateCode": "HWR2001E",
@@ -350,11 +235,6 @@
     "inviteTier": "W"
   },
   {
-    "privateCode": "R2005P",
-    "displayName": "Sameer Phayade",
-    "inviteTier": "R"
-  },
-  {
     "privateCode": "HWR2001E3",
     "displayName": "Sanika Kulkarni",
     "inviteTier": "HWR"
@@ -370,18 +250,13 @@
     "inviteTier": "W"
   },
   {
-    "privateCode": "R2005P2",
-    "displayName": "Anupa Phayade",
-    "inviteTier": "R"
-  },
-  {
     "privateCode": "HWR2001E4",
     "displayName": "Reva Kulkarni",
     "inviteTier": "HWR"
   },
   {
-    "privateCode": "W2004H3",
-    "displayName": "Anusha Pai",
+    "privateCode": "W2004J",
+    "displayName": "Manik Pantvaidya",
     "inviteTier": "W"
   },
   {
@@ -390,14 +265,9 @@
     "inviteTier": "WR"
   },
   {
-    "privateCode": "W2004H4",
-    "displayName": "Chirag Pai",
+    "privateCode": "W2004J2",
+    "displayName": "Manish Pantvaidya",
     "inviteTier": "W"
-  },
-  {
-    "privateCode": "R2005Q",
-    "displayName": "Mandar Chitnis",
-    "inviteTier": "R"
   },
   {
     "privateCode": "HWR2001F",
@@ -405,9 +275,9 @@
     "inviteTier": "HWR"
   },
   {
-    "privateCode": "R2005Q2",
-    "displayName": "Asmani Chitnis",
-    "inviteTier": "R"
+    "privateCode": "W2004K",
+    "displayName": "Raji Matha",
+    "inviteTier": "W"
   },
   {
     "privateCode": "HWR2001F2",
@@ -420,24 +290,14 @@
     "inviteTier": "WR"
   },
   {
-    "privateCode": "W2004J",
-    "displayName": "Manik Pantvaidya",
+    "privateCode": "W2004K2",
+    "displayName": "Shashi",
     "inviteTier": "W"
   },
   {
     "privateCode": "HWR2001F3",
     "displayName": "Riya Kapadekar",
     "inviteTier": "HWR"
-  },
-  {
-    "privateCode": "W2004J2",
-    "displayName": "Manish Pantvaidya",
-    "inviteTier": "W"
-  },
-  {
-    "privateCode": "R2005R",
-    "displayName": "Hari Iyar",
-    "inviteTier": "R"
   },
   {
     "privateCode": "HWR2001F4",
@@ -450,16 +310,6 @@
     "inviteTier": "WR"
   },
   {
-    "privateCode": "W2004J3",
-    "displayName": "Arnav Pantvaidya",
-    "inviteTier": "W"
-  },
-  {
-    "privateCode": "W2004J4",
-    "displayName": "Mitali Pantvaidya",
-    "inviteTier": "W"
-  },
-  {
     "privateCode": "HWR2001G",
     "displayName": "Shekhar Dhongade",
     "inviteTier": "HWR"
@@ -470,19 +320,9 @@
     "inviteTier": "HWR"
   },
   {
-    "privateCode": "W2004K",
-    "displayName": "Raji Matha",
-    "inviteTier": "W"
-  },
-  {
     "privateCode": "HWR2001G3",
     "displayName": "Shardul Dhongade",
     "inviteTier": "HWR"
-  },
-  {
-    "privateCode": "W2004K2",
-    "displayName": "Shashi",
-    "inviteTier": "W"
   },
   {
     "privateCode": "HWR2001G4",
@@ -490,24 +330,9 @@
     "inviteTier": "HWR"
   },
   {
-    "privateCode": "W2004K3",
-    "displayName": "Karthik",
-    "inviteTier": "W"
-  },
-  {
-    "privateCode": "W2004K4",
-    "displayName": "Arthi",
-    "inviteTier": "W"
-  },
-  {
     "privateCode": "HWR2001H",
     "displayName": "Rajiv Joshi",
     "inviteTier": "HWR"
-  },
-  {
-    "privateCode": "W2004K5",
-    "displayName": "Ashvin",
-    "inviteTier": "W"
   },
   {
     "privateCode": "HWR2001H2",
@@ -515,13 +340,18 @@
     "inviteTier": "HWR"
   },
   {
+    "privateCode": "W2004N",
+    "displayName": "Vijay Ganpule",
+    "inviteTier": "W"
+  },
+  {
     "privateCode": "HWR2001H3",
     "displayName": "Soham Joshi",
     "inviteTier": "HWR"
   },
   {
-    "privateCode": "W2004L",
-    "displayName": "Bala Ramachandran",
+    "privateCode": "W2004N2",
+    "displayName": "Vinita Ganpule",
     "inviteTier": "W"
   },
   {
@@ -530,8 +360,23 @@
     "inviteTier": "HWR"
   },
   {
-    "privateCode": "W2004L2",
-    "displayName": "Savita Ramachandran",
+    "privateCode": "W2004N3",
+    "displayName": "Amey Ganpule",
+    "inviteTier": "W"
+  },
+  {
+    "privateCode": "HWR2001H5",
+    "displayName": "Joshi Kaku",
+    "inviteTier": "HWR"
+  },
+  {
+    "privateCode": "W2004N4",
+    "displayName": "Rechal Ganpule",
+    "inviteTier": "W"
+  },
+  {
+    "privateCode": "W2004N5",
+    "displayName": "Aditi Ganpule",
     "inviteTier": "W"
   },
   {
@@ -540,28 +385,43 @@
     "inviteTier": "HWR"
   },
   {
-    "privateCode": "W2004M",
-    "displayName": "Lubdha Pednekar",
-    "inviteTier": "W"
-  },
-  {
-    "privateCode": "W2004M2",
-    "displayName": "Dinesh Pednekar",
-    "inviteTier": "W"
-  },
-  {
     "privateCode": "HWR2001J",
     "displayName": "Srikar",
     "inviteTier": "HWR"
   },
   {
-    "privateCode": "W2004M3",
-    "displayName": "Ashmi Pednekar",
+    "privateCode": "HWR2001K",
+    "displayName": "Gangadhar Thakur",
+    "inviteTier": "HWR"
+  },
+  {
+    "privateCode": "W2004P",
+    "displayName": "Smit patel",
     "inviteTier": "W"
   },
   {
-    "privateCode": "W2004M4",
-    "displayName": "Aashish Pednekar",
+    "privateCode": "HWR2001K2",
+    "displayName": "Sugandha Thakur",
+    "inviteTier": "HWR"
+  },
+  {
+    "privateCode": "W2004Q",
+    "displayName": "Mahesh Purandare",
+    "inviteTier": "W"
+  },
+  {
+    "privateCode": "W2004Q2",
+    "displayName": "Vrushali Purandare",
+    "inviteTier": "W"
+  },
+  {
+    "privateCode": "W2004Q3",
+    "displayName": "Rohan Purandare",
+    "inviteTier": "W"
+  },
+  {
+    "privateCode": "W2004Q4",
+    "displayName": "Vidhisha Purandare",
     "inviteTier": "W"
   }
 ]
