@@ -390,7 +390,7 @@ function handleTabClick(e) {
  */
 function initGallery() {
     elements.galleryGrid.innerHTML = '';
-    const MAX_PHOTOS = 12; // Configurable as requested
+    const MAX_PHOTOS = 4; // Configurable as requested
     
     for (let i = 1; i <= MAX_PHOTOS; i++) {
         const img = document.createElement('img');
@@ -399,6 +399,15 @@ function initGallery() {
         img.src = 'photos/' + i + '.jpg';
         img.alt = 'Gallery Image ' + i;
         img.loading = 'lazy';
+        
+        // Dynamically classify image orientation
+        img.onload = function() {
+            if (this.naturalWidth > this.naturalHeight) {
+                this.classList.add('landscape');
+            } else {
+                this.classList.add('portrait');
+            }
+        };
         
         // If image doesn't exist, fallback to an aesthetic placeholder
         img.onerror = function() {
