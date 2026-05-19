@@ -390,7 +390,7 @@ function handleTabClick(e) {
  */
 function initGallery() {
     elements.galleryGrid.innerHTML = '';
-    const MAX_PHOTOS = 4; // Configurable as requested
+    const MAX_PHOTOS = 5; // Configurable as requested
     
     for (let i = 1; i <= MAX_PHOTOS; i++) {
         const img = document.createElement('img');
