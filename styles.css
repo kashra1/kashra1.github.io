@@ -689,6 +689,16 @@ input[type="text"]:focus {
     line-height: 1.4;
 }
 
+.footer-logout-container {
+    margin-top: 2.5rem;
+    display: flex;
+    justify-content: center;
+}
+
+.footer-logout-container.hidden {
+    display: none;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
     .event-body {

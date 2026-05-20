@@ -116,7 +116,9 @@ const elements = {
     rsvpForm: document.getElementById('rsvp-form'),
     rsvpDynamicFields: document.getElementById('rsvp-dynamic-fields'),
     rsvpStatusMessage: document.getElementById('rsvp-status-message'),
-    submitRsvpBtn: document.getElementById('submit-rsvp-btn')
+    submitRsvpBtn: document.getElementById('submit-rsvp-btn'),
+    footerLogoutContainer: document.getElementById('footer-logout-container'),
+    footerLogoutBtn: document.getElementById('footer-logout-btn')
 };
 
 // Icons (SVG strings for injecting)
@@ -134,7 +136,7 @@ function init() {
     initGooeyTextMorphs();
 
     // Check for existing session
-    const sessionStr = localStorage.getItem(SESSION_KEY);
+    const sessionStr = sessionStorage.getItem(SESSION_KEY);
     if (sessionStr) {
         try {
             const guestData = JSON.parse(sessionStr);
@@ -151,6 +153,9 @@ function init() {
     elements.codeForm.addEventListener('submit', handleLogin);
     elements.logoutBtn.addEventListener('click', handleLogout);
     elements.reopenModalBtn.addEventListener('click', handleLogout);
+    if (elements.footerLogoutBtn) {
+        elements.footerLogoutBtn.addEventListener('click', handleLogout);
+    }
     
     // RSVP Event Listeners
     elements.rsvpBtnTop.addEventListener('click', openRsvpModal);
@@ -253,7 +258,7 @@ async function handleLogin(e) {
         setTimeout(() => {
             if (guestMatch) {
                 // Success - store exact matched object
-                localStorage.setItem(SESSION_KEY, JSON.stringify(guestMatch));
+                sessionStorage.setItem(SESSION_KEY, JSON.stringify(guestMatch));
                 renderAuthenticatedView(guestMatch);
             } else {
                 // Fail
@@ -277,7 +282,7 @@ async function handleLogin(e) {
  * Logs out the user and shows the modal
  */
 function handleLogout() {
-    localStorage.removeItem(SESSION_KEY);
+    sessionStorage.removeItem(SESSION_KEY);
     elements.inviteCodeInput.value = '';
     
     const submitBtn = elements.codeForm.querySelector('button');
@@ -301,6 +306,10 @@ function showModalView() {
     elements.topNav.classList.add('hidden');
     elements.eventsContainer.innerHTML = '';
     
+    if (elements.footerLogoutContainer) {
+        elements.footerLogoutContainer.classList.add('hidden');
+    }
+    
     setTimeout(() => {
         elements.inviteCodeInput.focus();
     }, 400);
@@ -314,6 +323,10 @@ function renderAuthenticatedView(guestData) {
     elements.reopenModalBtn.classList.remove('hidden');
     elements.bottomRsvpSection.classList.remove('hidden');
     elements.topNav.classList.remove('hidden');
+    
+    if (elements.footerLogoutContainer) {
+        elements.footerLogoutContainer.classList.remove('hidden');
+    }
     
     // Initialize gallery if empty
     if (elements.galleryGrid && elements.galleryGrid.children.length === 0) {
@@ -484,7 +497,7 @@ function createEventCard(eventData) {
  * RSVP Logic
  */
 function openRsvpModal() {
-    const sessionStr = localStorage.getItem(SESSION_KEY);
+    const sessionStr = sessionStorage.getItem(SESSION_KEY);
     if (!sessionStr) return;
     
     const guestData = JSON.parse(sessionStr);
@@ -523,7 +536,7 @@ function closeRsvpModal() {
 async function handleRsvpSubmit(e) {
     e.preventDefault();
     
-    const sessionStr = localStorage.getItem(SESSION_KEY);
+    const sessionStr = sessionStorage.getItem(SESSION_KEY);
     if (!sessionStr) return;
     const guestData = JSON.parse(sessionStr);
 
