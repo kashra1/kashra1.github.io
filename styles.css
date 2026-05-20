@@ -179,10 +179,10 @@ input[type="text"]:focus {
     width: 56px;
     height: 56px;
     border-radius: 50%;
-    background-color: var(--color-white);
-    color: var(--color-deep-green);
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    border: 1px solid rgba(203, 161, 53, 0.3);
+    background-color: #FFF0F2; /* Soft red/rose tint */
+    color: #D95360; /* Soft red/rose icon color */
+    box-shadow: 0 4px 15px rgba(217, 83, 96, 0.15);
+    border: 1px solid rgba(217, 83, 96, 0.3);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -193,8 +193,10 @@ input[type="text"]:focus {
 
 .btn-floating:hover {
     transform: translateY(-4px) scale(1.05);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-    border-color: var(--color-gold);
+    background-color: #FFE5E8;
+    color: #C13B48;
+    box-shadow: 0 8px 20px rgba(217, 83, 96, 0.25);
+    border-color: #C13B48;
 }
 
 .btn-floating.hidden {

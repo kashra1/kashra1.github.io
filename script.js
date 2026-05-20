@@ -135,6 +135,9 @@ const icons = {
 function init() {
     initGooeyTextMorphs();
 
+    // Clean up any old localStorage session from previous versions
+    localStorage.removeItem(SESSION_KEY);
+
     // Check for existing session
     const sessionStr = sessionStorage.getItem(SESSION_KEY);
     if (sessionStr) {
