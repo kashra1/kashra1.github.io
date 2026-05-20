@@ -7,6 +7,7 @@
  */
 
 const SESSION_KEY = 'wedding_guest_session';
+const RSVP_STORAGE_PREFIX = 'wedding_guest_rsvp_';
 // TODO: Add your Google Apps Script Web App URL here after following the rsvp/README.md instructions
 const RSVP_WEB_APP_URL = 'https://script.google.com/macros/s/AKfycby1FklTGY7o4pICiS39neHzXtVLzI9qIU9n4C_1NVADVGz0VerQVe4ctotgzJFsUwRd/exec'; 
 
@@ -507,20 +508,35 @@ function openRsvpModal() {
     const tierConfig = TIER_MAPPING[guestData.inviteTier];
     const eventsToRender = ALL_EVENTS.filter(event => tierConfig.events.includes(event.id));
 
+    // Get saved RSVP responses from localStorage
+    const savedRsvpStr = localStorage.getItem(RSVP_STORAGE_PREFIX + guestData.privateCode);
+    let savedRsvp = null;
+    if (savedRsvpStr) {
+        try {
+            savedRsvp = JSON.parse(savedRsvpStr);
+        } catch (e) {
+            console.error("Error parsing saved RSVP", e);
+        }
+    }
+
     // Generate fields
     elements.rsvpDynamicFields.innerHTML = '';
     eventsToRender.forEach(event => {
         const group = document.createElement('div');
         group.className = 'rsvp-event-group';
+        
+        const isAttending = savedRsvp && savedRsvp[event.id] === 'Attending';
+        const isDeclining = savedRsvp && savedRsvp[event.id] === 'Declining';
+
         group.innerHTML = `
             <h4 class="rsvp-event-title">${event.title}</h4>
             <div class="rsvp-radio-options">
                 <label class="radio-label">
-                    <input type="radio" name="rsvp-${event.id}" value="Attending" required>
+                    <input type="radio" name="rsvp-${event.id}" value="Attending" required ${isAttending ? 'checked' : ''}>
                     Joyfully Accept
                 </label>
                 <label class="radio-label">
-                    <input type="radio" name="rsvp-${event.id}" value="Declining" required>
+                    <input type="radio" name="rsvp-${event.id}" value="Declining" required ${isDeclining ? 'checked' : ''}>
                     Regretfully Decline
                 </label>
             </div>
@@ -528,7 +544,16 @@ function openRsvpModal() {
         elements.rsvpDynamicFields.appendChild(group);
     });
 
-    elements.rsvpStatusMessage.classList.add('hidden');
+    if (savedRsvp) {
+        elements.rsvpStatusMessage.innerHTML = "<strong>Thank you!</strong> You have already submitted your RSVP. You can update your response below and submit again if needed.";
+        elements.rsvpStatusMessage.style.color = "#2e7d32";
+        elements.rsvpStatusMessage.style.backgroundColor = "#e8f5e9";
+        elements.rsvpStatusMessage.style.borderColor = "#c8e6c9";
+        elements.rsvpStatusMessage.classList.remove('hidden');
+    } else {
+        elements.rsvpStatusMessage.classList.add('hidden');
+    }
+    
     elements.rsvpModal.classList.remove('hidden');
 }
 
@@ -557,12 +582,25 @@ async function handleRsvpSubmit(e) {
         rsvpData[eventId] = formData.get('rsvp-' + eventId);
     });
 
+    // Save response locally
+    const saveRsvpLocally = () => {
+        const savedRsvpData = {};
+        tierConfig.events.forEach(eventId => {
+            savedRsvpData[eventId] = formData.get('rsvp-' + eventId);
+        });
+        localStorage.setItem(RSVP_STORAGE_PREFIX + guestData.privateCode, JSON.stringify(savedRsvpData));
+    };
+
     if (!RSVP_WEB_APP_URL) {
         // Mock submission if no URL provided
         console.log("Mock RSVP Submission:", rsvpData);
-        elements.rsvpStatusMessage.innerHTML = "<strong>Success!</strong> Your RSVP was recorded locally. (Backend URL not configured).";
+        saveRsvpLocally();
+        
+        elements.rsvpStatusMessage.innerHTML = "<strong>Success!</strong> Your RSVP was recorded. (Backend URL not configured).";
+        elements.rsvpStatusMessage.style.color = "#2e7d32";
+        elements.rsvpStatusMessage.style.backgroundColor = "#e8f5e9";
+        elements.rsvpStatusMessage.style.borderColor = "#c8e6c9";
         elements.rsvpStatusMessage.classList.remove('hidden');
-        elements.rsvpForm.reset();
         setTimeout(closeRsvpModal, 3000);
         return;
     }
@@ -580,18 +618,22 @@ async function handleRsvpSubmit(e) {
             }
         });
         
+        // Save locally on successful fetch response
+        saveRsvpLocally();
+        
         // Assumes success as Google Apps Script usually returns 200 or opaque
         elements.rsvpStatusMessage.innerHTML = "<strong>Success!</strong> Thank you for your RSVP.";
         elements.rsvpStatusMessage.style.color = "#2e7d32";
         elements.rsvpStatusMessage.style.backgroundColor = "#e8f5e9";
+        elements.rsvpStatusMessage.style.borderColor = "#c8e6c9";
         elements.rsvpStatusMessage.classList.remove('hidden');
-        elements.rsvpForm.reset();
         setTimeout(closeRsvpModal, 3000);
     } catch (err) {
         console.error("RSVP Submission Error:", err);
         elements.rsvpStatusMessage.innerHTML = "<strong>Error:</strong> Failed to submit. Please try again or contact us directly.";
         elements.rsvpStatusMessage.style.color = "#c9302c";
         elements.rsvpStatusMessage.style.backgroundColor = "#fdf2f2";
+        elements.rsvpStatusMessage.style.borderColor = "#eababa";
         elements.rsvpStatusMessage.classList.remove('hidden');
     } finally {
         elements.submitRsvpBtn.disabled = false;
