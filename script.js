@@ -257,7 +257,7 @@ async function handleLogin(e) {
                 renderAuthenticatedView(guestMatch);
             } else {
                 // Fail
-                elements.errorMessage.textContent = "We could not find that invitation code. Please try again.";
+                elements.errorMessage.textContent = "Invalid invitation code. Please try again.";
                 elements.errorMessage.classList.remove('hidden');
                 submitBtn.textContent = originalText;
                 submitBtn.disabled = false;
@@ -266,7 +266,7 @@ async function handleLogin(e) {
         
     } catch (error) {
         console.error("Error fetching guest data:", error);
-        elements.errorMessage.textContent = "Unable to load the guest list. Please make sure data/guests.json exists.";
+        elements.errorMessage.textContent = "Something went wrong. Please check your connection and try again.";
         elements.errorMessage.classList.remove('hidden');
         submitBtn.textContent = originalText;
         submitBtn.disabled = false;
