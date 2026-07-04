@@ -553,5 +553,25 @@
     "privateCode": "W2004V2",
     "displayName": "Mangesh Kulkarni",
     "inviteTier": "W"
+  },
+  {
+    "privateCode": "WR2003B",
+    "displayName": "Kedar Tamhankar",
+    "inviteTier": "WR"
+  },
+  {
+    "privateCode": "WR2003B2",
+    "displayName": "Kanchan Tamhankar",
+    "inviteTier": "WR"
+  },
+  {
+    "privateCode": "WR2003B3",
+    "displayName": "Janhavi Tamhankar",
+    "inviteTier": "WR"
+  },
+  {
+    "privateCode": "WR2003B4",
+    "displayName": "Manasi",
+    "inviteTier": "WR"
   }
 ]
