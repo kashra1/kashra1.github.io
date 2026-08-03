@@ -1356,7 +1356,7 @@
   },
   {
     "privateCode": "R2005M",
-    "displayName": "Hari Iyar",
+    "displayName": "Hari Iyer",
     "inviteTier": "R"
   },
   {
@@ -1401,7 +1401,7 @@
   },
   {
     "privateCode": "R2005V",
-    "displayName": "Varun Vij",
+    "displayName": "Varun Vijh",
     "inviteTier": "R"
   },
   {
@@ -1447,6 +1447,21 @@
   {
     "privateCode": "R2005Z6",
     "displayName": "Ashok Sheguri",
+    "inviteTier": "R"
+  },
+  {
+    "privateCode": "R2005Z7",
+    "displayName": "Muthu Sekkappan",
+    "inviteTier": "R"
+  },
+  {
+    "privateCode": "R2005Z8",
+    "displayName": "Govardhan Vadlapatla",
+    "inviteTier": "R"
+  },
+  {
+    "privateCode": "R2005Z9",
+    "displayName": "Ashwani Thakur",
     "inviteTier": "R"
   },
   {
@@ -1496,7 +1511,7 @@
   },
   {
     "privateCode": "W2006J",
-    "displayName": "Anirudh",
+    "displayName": "Anurag",
     "inviteTier": "W"
   },
   {
